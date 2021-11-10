@@ -6,7 +6,6 @@ const api = require('../api');
 const bodyParser = require('body-parser');
 const { errors, isCelebrateError } = require('celebrate');
 const { apiResponseGenerator } = require('../init/bootstrap');
-const expressValidator = require('../init/validations');
 const compression = require('compression');
 const middleware = async () => {
   const app = express();
@@ -40,7 +39,6 @@ const middleware = async () => {
   // parse application/json
   app.use(bodyParser.json({ limit: '30mb' }));
   app.use(apiResponseGenerator);
-  expressValidator(app);
 
   // connect to api
   app.use('/api', api);

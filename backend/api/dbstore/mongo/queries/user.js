@@ -11,6 +11,8 @@ const createUser = async (body) => {
 
     delete final.password;
 
+    delete final.isEmailConfirmed;
+
     delete final.isPasswordReset;
 
     return { result: final, hasError: null };
@@ -32,6 +34,20 @@ const findUser = async (body) => {
     delete final.password;
 
     return { result: final, hasError: null };
+  } catch (ex) {
+    ErrorHandler.extractError(ex);
+
+    return { result: null, hasError: true };
+  }
+};
+
+const getPassword = async (body) => {
+  try {
+    const { _id, password, isEmailConfirmed } = await User.schema.findOne(body);
+
+    if (_id == null) return { result: null, hasError: null };
+
+    return { result: { _id, password, isEmailConfirmed }, hasError: null };
   } catch (ex) {
     ErrorHandler.extractError(ex);
 
@@ -65,4 +81,4 @@ const updateUser = async (filter, updateData) => {
   }
 };
 
-module.exports = { createUser, findUser, updateUser };
+module.exports = { createUser, findUser, getPassword, updateUser };
