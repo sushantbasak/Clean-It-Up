@@ -114,6 +114,13 @@ const updateUser = async (req, res) => {
         if (getSavedPassword.status === 'ERROR_FOUND')
           throw new Error('Cannot Retrieve Password from Database');
 
+        if (getSavedPassword.status === 'NOT_FOUND') {
+          return res.sendError(
+            httpCode.StatusCodes.BAD_REQUEST,
+            MESSAGES.api.USER_NOT_FOUND
+          );
+        }
+
         const Match = await verifyHash(
           getSavedPassword.result.password,
           password

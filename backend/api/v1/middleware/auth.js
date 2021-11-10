@@ -56,6 +56,13 @@ const protect = async (req, res, next) => {
     if (status === 'ERROR_FOUND') {
       return res.sendError(
         httpCode.StatusCodes.BAD_REQUEST,
+        MESSAGES.api.SOMETHING_WENT_WRONG
+      );
+    }
+
+    if (status === 'NOT_FOUND') {
+      return res.sendError(
+        httpCode.StatusCodes.BAD_REQUEST,
         MESSAGES.api.USER_NOT_FOUND
       );
     }
