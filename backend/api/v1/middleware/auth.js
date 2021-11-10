@@ -13,8 +13,6 @@ const {
   jwt: { secret, expiresIn, resetsecret, resetexpiresIn },
 } = appSettings;
 
-// Imports
-
 // Functions
 
 const generateAuthToken = async (userId, expiry = false) => {
