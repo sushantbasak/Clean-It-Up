@@ -79,6 +79,106 @@ const logoutUser = (req, res) => {
   res.send('Logout User');
 };
 
+const updateUser = async (req, res) => {
+  delete req.body.mode;
+
+  delete req.body.confirmPassword;
+
+  const updates = Object.keys(req.body);
+
+  const allowedUpdates = ['firstName', 'lastName', 'email', 'password'];
+
+  const isValidOperation = updates.every((update) =>
+    allowedUpdates.includes(update)
+  );
+
+  if (!isValidOperation)
+    return res.sendError(
+      httpCode.StatusCodes.BAD_REQUEST,
+      MESSAGES.validations.INVALID_UPDATE
+    );
+
+  try {
+    let flag = false;
+
+    for (let i = 0; i < updates.length; i++) {
+      let data = updates[i];
+
+      if (data === 'password' && req.body[data].length) {
+        const password = req.body[data];
+
+        const getSavedPassword = await userService.getPassword({
+          _id: req.user._id,
+        });
+
+        if (getSavedPassword.status === 'ERROR_FOUND')
+          throw new Error('Cannot Retrieve Password from Database');
+
+        const Match = await verifyHash(
+          getSavedPassword.result.password,
+          password
+        );
+
+        if (Match.status === 'SUCCESS') continue;
+
+        if (Match.status === 'ERROR_FOUND')
+          throw new Error(
+            'Internal Error Occured During Password Verification'
+          );
+
+        const getHashedPassword = await generateHash(password);
+
+        if (getHashedPassword.status === 'ERROR_FOUND')
+          throw new Error('Cannot generate Hashed Password');
+
+        req.user[data] = getHashedPassword.hash;
+
+        flag = true;
+      } else if (req.body[data].length && req.body[data] !== req.user[data]) {
+        req.user[data] = req.body[data];
+        flag = true;
+      }
+    }
+
+    if (!flag) {
+      delete req.body.password;
+
+      return res.sendSuccess(
+        req.body,
+        MESSAGES.api.NO_NEW_UPDATE,
+        httpCode.StatusCodes.OK
+      );
+    }
+
+    const updatedUser = await userService.updateUser(
+      { _id: req.user._id },
+      req.user
+    );
+
+    if (updatedUser.status === 'ERROR_FOUND')
+      throw new Error('Unable to Update User in Database');
+
+    if (user.status === 'NOT_FOUND') {
+      return res.sendError(
+        httpCode.StatusCodes.BAD_REQUEST,
+        MESSAGES.api.USER_NOT_FOUND
+      );
+    }
+
+    res.sendSuccess(
+      updatedUser.result,
+      MESSAGES.api.UPDATE_SUCCESSFULL,
+      httpCode.StatusCodes.OK
+    );
+  } catch (ex) {
+    ErrorHandler.extractError(ex);
+    res.sendError(
+      httpCode.StatusCodes.INTERNAL_SERVER_ERROR,
+      MESSAGES.api.SOMETHING_WENT_WRONG
+    );
+  }
+};
+
 router.post(
   '/register',
   celebrate({
@@ -99,5 +199,14 @@ router.get(
 router.get('/profile', protect, getProfile);
 
 router.get('/logout', protect, logoutUser);
+
+router.patch(
+  '/update',
+  protect,
+  celebrate({
+    body: userSchema,
+  }),
+  updateUser
+);
 
 module.exports = router;
