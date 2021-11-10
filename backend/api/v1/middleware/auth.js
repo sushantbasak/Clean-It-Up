@@ -13,6 +13,10 @@ const {
   jwt: { secret, expiresIn, resetsecret, resetexpiresIn },
 } = appSettings;
 
+// Imports
+
+const userService = require('../services/userService');
+
 // Functions
 
 const generateAuthToken = async (userId, expiry = false) => {
@@ -39,4 +43,44 @@ const generateAuthToken = async (userId, expiry = false) => {
   }
 };
 
-module.exports = { generateAuthToken };
+const protect = async (req, res, next) => {
+  try {
+    const token = req.header('Authorization').replace('Bearer ', '');
+
+    const decoded = await jwt.verify(token, secret);
+
+    const { result, status } = await userService.findUser({
+      _id: decoded.id,
+    });
+
+    if (status === 'ERROR_FOUND') {
+      return res.sendError(
+        httpCode.StatusCodes.BAD_REQUEST,
+        MESSAGES.api.USER_NOT_FOUND
+      );
+    }
+
+    if (result.isEmailConfirmed === false) {
+      return res.sendError(
+        httpCode.StatusCodes.OK,
+        MESSAGES.api.EMAIL_NOT_CONFIRMATION
+      );
+    }
+
+    const pathname = url.parse(req.url, true).pathname;
+
+    if (pathname === '/update') req.body = { ...req.body, mode: 0 };
+
+    req.user = result;
+
+    next();
+  } catch (ex) {
+    ErrorHandler.extractError(ex);
+    return res.sendError(
+      httpCode.StatusCodes.UNAUTHORIZED,
+      MESSAGES.api.UNAUTHORIZED_USER
+    );
+  }
+};
+
+module.exports = { generateAuthToken, protect };

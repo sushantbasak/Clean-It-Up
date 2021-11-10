@@ -12,7 +12,7 @@ const { MESSAGES } = require('../../../constants');
 
 // Imports
 
-const { generateAuthToken } = require('../middleware/auth');
+const { generateAuthToken, protect } = require('../middleware/auth');
 const { generateHash, compareHash, verifyHash } = require('../middleware/hash');
 const { userSchema, loginSchema } = require('../validators/user.schema');
 
@@ -87,3 +87,7 @@ router.get(
   compareHash,
   loginUser
 );
+
+router.get('/profile', protect, getProfile);
+
+module.exports = router;
