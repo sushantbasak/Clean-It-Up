@@ -6,6 +6,13 @@ const config = {
   development: {
     mongoDb: process.env.DB_URL,
     port: process.env.PORT || 3001,
+    jwt: {
+      secret: process.env.JWT_SECRET,
+      resetsecret: process.env.JWT_SECRET_RESET,
+      expiresIn: process.env.EXPIRESIN,
+      resetexpiresIn: process.env.RESETEXPIRESIN,
+    },
+    reactUrl: process.env.REACT_APP_URL,
     serverUrl: process.env.SERVER_URL,
   },
 };
