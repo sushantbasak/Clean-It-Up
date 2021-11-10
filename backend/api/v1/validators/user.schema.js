@@ -30,4 +30,9 @@ const userSchema = Joi.object().keys({
   }),
 });
 
-module.exports = { userSchema };
+const loginSchema = Joi.object().keys({
+  email: Joi.string().email().trim().lowercase().required(),
+  password: Joi.string().pattern(new RegExp(Pattern)),
+});
+
+module.exports = { userSchema, loginSchema };
