@@ -71,6 +71,14 @@ const loginUser = async (req, res) => {
   }
 };
 
+const getProfile = async (req, res) => {
+  res.sendSuccess(req.user, MESSAGES.api.SUCCESS, httpCode.StatusCodes.OK);
+};
+
+const logoutUser = (req, res) => {
+  res.send('Logout User');
+};
+
 router.post(
   '/register',
   celebrate({
@@ -89,5 +97,7 @@ router.get(
 );
 
 router.get('/profile', protect, getProfile);
+
+router.get('/logout', protect, logoutUser);
 
 module.exports = router;
