@@ -11,8 +11,6 @@ const createUser = async (body) => {
 
     delete final.password;
 
-    delete final.isEmailConfirmed;
-
     delete final.isPasswordReset;
 
     return { result: final, hasError: null };
