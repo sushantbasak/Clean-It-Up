@@ -19,7 +19,7 @@ mongoose.connect(
     useFindAndModify: false,
     useUnifiedTopology: true,
   },
-  () => console.log(`Database Connected on ${mongoDB}`)
+  () => console.log(`Database Connected`)
 );
 
 const dbStoreHandler = {
