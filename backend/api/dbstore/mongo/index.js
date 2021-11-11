@@ -4,7 +4,12 @@ const mongoose = require('mongoose');
 const appSettings = require('../../../config');
 const mongoDB = appSettings.mongoDb;
 
-const { createUser, findUser, updateUser } = require('./queries/user');
+const {
+  createUser,
+  findUser,
+  updateUser,
+  getPassword,
+} = require('./queries/user');
 
 mongoose.connect(
   mongoDB,
@@ -21,6 +26,7 @@ const dbStoreHandler = {
   createUser,
   findUser,
   updateUser,
+  getPassword,
 };
 
 module.exports = dbStoreHandler;
