@@ -45,7 +45,15 @@ const JobItem = (props) => {
             </label>
           </form>
           <form>
-            <button className="delete">Delete</button>
+            <button
+              className="delete"
+              onClick={(e) => {
+                e.preventDefault();
+                props.deleteHandler(props.id);
+              }}
+            >
+              Delete
+            </button>
           </form>
         </div>
       )}

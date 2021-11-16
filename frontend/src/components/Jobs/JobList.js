@@ -9,10 +9,12 @@ const JobList = (props) => {
         return (
           <JobItem
             key={job.id}
+            id={job.id}
             role={props.role}
             title={job.title}
             description={job.description}
             address={job.address}
+            deleteHandler={(id) => props.deleteJob(id)}
           />
         );
       })}

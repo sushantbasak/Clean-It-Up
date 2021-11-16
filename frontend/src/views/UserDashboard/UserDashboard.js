@@ -32,11 +32,15 @@ const UserDashboard = () => {
     });
   };
 
+  const deleteHandler = (id) => {
+    setJobs((prevState) => prevState.filter((job) => job.id !== id));
+  };
+
   return (
     <>
       <Navbar />
       <NewJob addPost={addPost} />
-      <JobList role="3" list={jobs} />
+      <JobList role="3" list={jobs} deleteJob={deleteHandler} />
     </>
   );
 };
