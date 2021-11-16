@@ -1,11 +1,12 @@
 import React from 'react';
 import Navbar from '../../components/Navbar/Navbar';
+import NewJob from '../../components/NewJob/NewJob';
 
 const UserDashboard = () => {
   return (
     <>
       <Navbar />
-      <h1>User Dashboard</h1>
+      <NewJob />
     </>
   );
 };
