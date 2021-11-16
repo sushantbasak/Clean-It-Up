@@ -3,6 +3,10 @@ import './NewJob.css';
 
 const NewJob = () => {
   const [open, setOpen] = useState(false);
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [address, setAddress] = useState('');
+  const [image, setImage] = useState('');
 
   const closeHandler = (event) => {
     event.preventDefault();
@@ -15,7 +19,10 @@ const NewJob = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log('Submission made');
+    console.log('Title: ' + title);
+    console.log('Description: ' + description);
+    console.log('Address: ' + address);
+    console.log(image);
   };
 
   return (
@@ -25,19 +32,25 @@ const NewJob = () => {
           <div className="form-inputs">
             <div className="form-control">
               <label>Title: </label>
-              <input type="text" name="title" required />
+              <input type="text" value={title} name="title" required onChange={(e) => setTitle(e.target.value)} />
             </div>
             <div className="form-control">
               <label>Address: </label>
-              <input type="text" name="address" required />
+              <input type="text" value={address} name="address" required onChange={(e) => setAddress(e.target.value)} />
             </div>
             <div className="form-control">
               <label>Description: </label>
-              <textarea rows="5" name="description" required />
+              <textarea
+                rows="5"
+                name="description"
+                value={description}
+                required
+                onChange={(e) => setDescription(e.target.value)}
+              />
             </div>
             <div className="form-control upload">
               <label>Image:</label>
-              <input type="file" id="myFile" name="image" />
+              <input type="file" id="myFile" name="image" onChange={(e) => setImage(e.target.value)} />
             </div>
           </div>
           <div className="form-submit">
