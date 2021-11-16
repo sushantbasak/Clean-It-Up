@@ -13,10 +13,15 @@ const NewJob = () => {
     setOpen(true);
   };
 
+  const submitHandler = (event) => {
+    event.preventDefault();
+    console.log('Submission made');
+  };
+
   return (
     <div className="job-form">
       {open && (
-        <form>
+        <form onSubmit={submitHandler}>
           <div className="form-inputs">
             <div className="form-control">
               <label>Title: </label>
@@ -39,7 +44,7 @@ const NewJob = () => {
             <button className="close-btn" onClick={closeHandler}>
               Close
             </button>
-            <button>Post Job</button>
+            <button type="submit">Post Job</button>
           </div>
         </form>
       )}
