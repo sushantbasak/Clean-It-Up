@@ -1,4 +1,4 @@
-import { Navbar, Nav, Container, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
+import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const NavbarMain = () => {
@@ -13,11 +13,8 @@ const NavbarMain = () => {
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/about">About</Nav.Link>
             </Nav>
-
-            <NavDropdown title="Login/Register" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">User</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">Worker</NavDropdown.Item>
-            </NavDropdown>
+            <Nav.Link href="/">Edit Profile</Nav.Link>
+            <Nav.Link href="/about">Logout</Nav.Link>
           </Navbar.Collapse>
         </Container>
       </Navbar>
