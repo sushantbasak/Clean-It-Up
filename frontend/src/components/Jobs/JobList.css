@@ -1,0 +1,7 @@
+.job-list {
+  width: 45rem;
+  margin: 0 auto;
+  padding: 1rem;
+  background-color: rgb(231, 231, 231);
+  border-radius: 12px;
+}

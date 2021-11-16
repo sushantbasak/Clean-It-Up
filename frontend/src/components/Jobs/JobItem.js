@@ -4,11 +4,11 @@ import './JobItem.css';
 const JobItem = (props) => {
   return (
     <div className="job-item">
-      <h6>Cleaning Job 1</h6>
-      <img src="logo192.png" alt="garbage" />
-      <p>Please clean the garbage</p>
+      <h6> {props.title} </h6>
+      <img src="garbage.jpg" alt="garbage" />
+      <p> {props.description} </p>
       <p>
-        <i>At Chandani Chowk, Delhi</i>
+        <i> {props.address} </i>
       </p>
       {(props.role === '3' || props.role === '1') && (
         <div className="forms">
@@ -49,7 +49,7 @@ const JobItem = (props) => {
           </form>
         </div>
       )}
-      {props.role == '2' && (
+      {props.role === '2' && (
         <div className="forms">
           <form>
             <button className="accept">Accept Job</button>

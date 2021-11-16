@@ -2,7 +2,7 @@
   background-color: rgb(246, 246, 250);
   width: 40rem;
   max-width: 90%;
-  margin: 0 auto;
+  margin: 20px auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,6 +10,9 @@
   border-radius: 10px;
   border: 2px solid black;
   padding: 1rem 0;
+}
+h6 {
+  font-size: 1.1rem;
 }
 
 .delete {
@@ -90,10 +93,10 @@
 
 .rating:not(:hover) label input:checked ~ .icon,
 .rating:hover label:hover input ~ .icon {
-  color: rgb(248, 246, 94);
+  color: rgb(236, 234, 89);
 }
 
 .rating label input:focus:not(:checked) ~ .icon:last-child {
   color: #000;
-  text-shadow: 0 0 5px rgb(248, 246, 94);
+  text-shadow: 0 0 5px rgb(236, 234, 89);
 }
