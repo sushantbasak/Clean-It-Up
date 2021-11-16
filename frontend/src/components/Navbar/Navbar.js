@@ -13,8 +13,10 @@ const NavbarMain = () => {
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/about">About</Nav.Link>
             </Nav>
-            <Nav.Link href="/">Edit Profile</Nav.Link>
-            <Nav.Link href="/about">Logout</Nav.Link>
+            <Nav>
+              <Nav.Link href="/">Edit Profile</Nav.Link>
+              <Nav.Link href="/about">Logout</Nav.Link>
+            </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
