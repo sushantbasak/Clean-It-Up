@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../../components/Navbar/Navbar';
 import NewJob from '../../components/NewJob/NewJob';
 import JobList from '../../components/Jobs/JobList';
 
 const UserDashboard = () => {
-  const jobs = [
+  const [jobs, setJobs] = useState([
     {
       id: 1,
       title: 'Cleaning Job 1',
@@ -23,11 +23,19 @@ const UserDashboard = () => {
       description: 'Clear blocked sewere',
       address: 'At Pitampura Delhi',
     },
-  ];
+  ]);
+
+  const addPost = (newJob) => {
+    console.log(newJob);
+    setJobs((prevState) => {
+      return [newJob, ...prevState];
+    });
+  };
+
   return (
     <>
       <Navbar />
-      <NewJob />
+      <NewJob addPost={addPost} />
       <JobList role="3" list={jobs} />
     </>
   );

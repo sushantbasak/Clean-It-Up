@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './NewJob.css';
 
-const NewJob = () => {
+const NewJob = (props) => {
   const [open, setOpen] = useState(false);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -19,10 +19,16 @@ const NewJob = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log('Title: ' + title);
-    console.log('Description: ' + description);
-    console.log('Address: ' + address);
-    console.log(image);
+
+    const job = {
+      id: new Date().toISOString(),
+      title: title,
+      description: description,
+      address: address,
+      image: image,
+    };
+
+    props.addPost(job);
   };
 
   return (
