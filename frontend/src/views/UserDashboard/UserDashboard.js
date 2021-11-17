@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Navbar from '../../components/Navbar/Navbar';
 import NewJob from '../../components/NewJob/NewJob';
 import JobList from '../../components/Jobs/JobList';
+import './UserDashboard.css';
 
 const UserDashboard = () => {
   const [jobs, setJobs] = useState([
