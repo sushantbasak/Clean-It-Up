@@ -28,6 +28,10 @@ h6 {
   width: 6rem;
 }
 
+img {
+  max-width: 90%;
+}
+
 .forms {
   display: flex;
   justify-content: space-around;
