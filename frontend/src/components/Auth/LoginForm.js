@@ -4,28 +4,20 @@ import './LoginForm.css';
 const LoginForm = () => {
   return (
     <div className="login-form">
-      {' '}
+      <h2 className="heading">User Login </h2>
       <form>
         <div className="form-inputs">
           <div className="form-input">
-            <label>Title: </label>
+            <label>Email: </label>
             <input type="text" name="title" required />
           </div>
           <div className="form-input">
-            <label>Address: </label>
-            <input type="text" name="address" required />
-          </div>
-          <div className="form-input">
-            <label>Description: </label>
-            <textarea rows="5" name="description" required />
-          </div>
-          <div className="form-input">
-            <label>Image:</label>
-            <input type="file" id="myFile" name="image" />
+            <label>Password: </label>
+            <input type="password" name="address" required />
           </div>
         </div>
         <div className="form-submit">
-          <button type="submit">Post Job</button>
+          <button type="submit">Login</button>
         </div>
       </form>
     </div>
