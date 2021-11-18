@@ -10,7 +10,7 @@ const WorkerDashboard = () => {
       title: 'Cleaning Job 1',
       description: 'Please clean the garbage',
       address: 'At Chandani Chowk, Delhi',
-      status: 0
+      status: 1
     },
     {
       id: 2,
@@ -24,7 +24,7 @@ const WorkerDashboard = () => {
       title: 'Cleaning Job 3',
       description: 'Clear blocked sewere',
       address: 'At Pitampura Delhi',
-      status: 1
+      status: 0
     },
   ];
     return (
