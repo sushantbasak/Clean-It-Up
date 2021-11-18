@@ -61,7 +61,7 @@ const JobItem = (props) => {
       {props.role === '2' && (
         <div className="forms">
           <form>
-            {status===0 && <button className="delete">Job Closed</button>}
+            {status===0 && <button className="closed">Job Closed</button>}
             {status===1 && <button className="accept">Accept Job</button>}
             {status===2 && <button className="accepted">Job Accepted</button>}
           </form>
