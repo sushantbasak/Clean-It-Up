@@ -1,19 +1,16 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './JobItem.css';
 
 const JobItem = (props) => {
   const [status, setStatus] = useState(props.status);
   const btnHandler = (e) => {
     e.preventDefault();
-    if(status === 1)
-    {
+    if (status === 1) {
       setStatus(2);
-    }
-    else if(status === 2)
-    {
+    } else if (status === 2) {
       setStatus(1);
     }
-  }
+  };
 
   return (
     <div className="job-item">
@@ -23,7 +20,7 @@ const JobItem = (props) => {
       <p>
         <i> {props.address} </i>
       </p>
-      {props.role === '3'  && (
+      {props.role === '3' && (
         <div className="forms">
           <form className="rating">
             <label>
@@ -73,15 +70,27 @@ const JobItem = (props) => {
       {props.role === '2' && (
         <div className="forms">
           <form>
-            {status===0 && <button className="closed" onClick={(e) => e.preventDefault()}>Job Closed</button>}
-            {status===1 && <button className="accept" onClick={btnHandler}>Accept Job</button>}
-            {status===2 && <button className="accepted" onClick={btnHandler}>Job Accepted</button>}
+            {status === 0 && (
+              <button className="closed" onClick={(e) => e.preventDefault()}>
+                Job Closed
+              </button>
+            )}
+            {status === 1 && (
+              <button className="accept" onClick={btnHandler}>
+                Accept Job
+              </button>
+            )}
+            {status === 2 && (
+              <button className="accepted" onClick={btnHandler}>
+                Job Accepted
+              </button>
+            )}
           </form>
         </div>
       )}
       {props.role === '1' && (
         <div className="forms">
-           <form>
+          <form>
             <button
               className="delete"
               onClick={(e) => {
