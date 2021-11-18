@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import './UserDashboard.css';
+import './AdminDashboard.css';
 
 import Navbar from '../../components/Navbar/Navbar';
-import NewJob from '../../components/NewJob/NewJob';
 import JobList from '../../components/Jobs/JobList';
 
-const UserDashboard = () => {
+const AdminDashboard = () => {
   const [jobs, setJobs] = useState([
     {
       id: 1,
@@ -30,13 +29,6 @@ const UserDashboard = () => {
     },
   ]);
 
-  const addPost = (newJob) => {
-    console.log(newJob);
-    setJobs((prevState) => {
-      return [newJob, ...prevState];
-    });
-  };
-
   const deleteHandler = (id) => {
     setJobs((prevState) => prevState.filter((job) => job.id !== id));
   };
@@ -44,10 +36,9 @@ const UserDashboard = () => {
   return (
     <>
       <Navbar />
-      <NewJob addPost={addPost} />
-      <JobList role="3" list={jobs} deleteJob={deleteHandler} />
+      <JobList role="1" list={jobs} deleteJob={deleteHandler} />
     </>
   );
 };
 
-export default UserDashboard;
+export default AdminDashboard;

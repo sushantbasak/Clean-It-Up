@@ -5,6 +5,8 @@ import React from 'react';
 import Home from './views/Home/Home';
 import About from './views/About/About';
 import UserDashboard from './views/UserDashboard/UserDashboard';
+import WorkerDashboard from './views/WorkerDashboard/WorkerDashboard';
+import AdminDashboard from './views/AdminDashboard/AdminDashboard';
 
 const App = () => {
   return (
@@ -13,6 +15,8 @@ const App = () => {
         <Route exact path="/" element={<Home />} />
         <Route exact path="/about" element={<About />} />
         <Route exact path="/UserDashboard" element={<UserDashboard />} />
+        <Route exact path="/WorkerDashboard" element={<WorkerDashboard />} />
+        <Route exact path="/AdminDashboard" element={<AdminDashboard />} />
       </Routes>
     </div>
   );

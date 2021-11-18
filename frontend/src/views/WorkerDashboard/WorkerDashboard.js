@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
-import './UserDashboard.css';
+import React from 'react';
+import './WorkerDashboard.css';
 
 import Navbar from '../../components/Navbar/Navbar';
-import NewJob from '../../components/NewJob/NewJob';
 import JobList from '../../components/Jobs/JobList';
 
-const UserDashboard = () => {
-  const [jobs, setJobs] = useState([
+const WorkerDashboard = () => {
+  const jobs = [
     {
       id: 1,
       title: 'Cleaning Job 1',
@@ -26,28 +25,16 @@ const UserDashboard = () => {
       title: 'Cleaning Job 3',
       description: 'Clear blocked sewere',
       address: 'At Pitampura Delhi',
-      status: 1,
+      status: 0,
     },
-  ]);
-
-  const addPost = (newJob) => {
-    console.log(newJob);
-    setJobs((prevState) => {
-      return [newJob, ...prevState];
-    });
-  };
-
-  const deleteHandler = (id) => {
-    setJobs((prevState) => prevState.filter((job) => job.id !== id));
-  };
+  ];
 
   return (
     <>
       <Navbar />
-      <NewJob addPost={addPost} />
-      <JobList role="3" list={jobs} deleteJob={deleteHandler} />
+      <JobList role="2" list={jobs} />
     </>
   );
 };
 
-export default UserDashboard;
+export default WorkerDashboard;
