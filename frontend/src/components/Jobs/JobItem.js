@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './JobItem.css';
 
 const JobItem = (props) => {
+  const [status, setStatus] = useState(props.status);
   return (
     <div className="job-item">
       <h6> {props.title} </h6>
@@ -60,7 +61,9 @@ const JobItem = (props) => {
       {props.role === '2' && (
         <div className="forms">
           <form>
-            <button className="accept">Accept Job</button>
+            {status===0 && <button className="delete">Job Closed</button>}
+            {status===1 && <button className="accept">Accept Job</button>}
+            {status===2 && <button className="accepted">Job Accepted</button>}
           </form>
         </div>
       )}

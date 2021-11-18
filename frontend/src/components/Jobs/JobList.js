@@ -15,6 +15,7 @@ const JobList = (props) => {
             description={job.description}
             address={job.address}
             deleteHandler={(id) => props.deleteJob(id)}
+            status={job.status}
           />
         );
       })}
