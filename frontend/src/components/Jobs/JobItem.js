@@ -3,6 +3,18 @@ import './JobItem.css';
 
 const JobItem = (props) => {
   const [status, setStatus] = useState(props.status);
+  const btnHandler = (e) => {
+    e.preventDefault();
+    if(status === 1)
+    {
+      setStatus(2);
+    }
+    else if(status === 2)
+    {
+      setStatus(1);
+    }
+  }
+
   return (
     <div className="job-item">
       <h6> {props.title} </h6>
@@ -61,9 +73,9 @@ const JobItem = (props) => {
       {props.role === '2' && (
         <div className="forms">
           <form>
-            {status===0 && <button className="closed">Job Closed</button>}
-            {status===1 && <button className="accept">Accept Job</button>}
-            {status===2 && <button className="accepted">Job Accepted</button>}
+            {status===0 && <button className="closed" onClick={(e) => e.preventDefault()}>Job Closed</button>}
+            {status===1 && <button className="accept" onClick={btnHandler}>Accept Job</button>}
+            {status===2 && <button className="accepted" onClick={btnHandler}>Job Accepted</button>}
           </form>
         </div>
       )}

@@ -24,7 +24,7 @@ const WorkerDashboard = () => {
       title: 'Cleaning Job 3',
       description: 'Clear blocked sewere',
       address: 'At Pitampura Delhi',
-      status: 2
+      status: 1
     },
   ];
     return (
