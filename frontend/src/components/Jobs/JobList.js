@@ -6,7 +6,17 @@ const JobList = (props) => {
   return (
     <div className="job-list">
       {props.list.map((job) => {
-        return <JobItem role={props.role} title={job.title} description={job.description} address={job.address} />;
+        return (
+          <JobItem
+            key={job.id}
+            id={job.id}
+            role={props.role}
+            title={job.title}
+            description={job.description}
+            address={job.address}
+            deleteHandler={(id) => props.deleteJob(id)}
+          />
+        );
       })}
     </div>
   );

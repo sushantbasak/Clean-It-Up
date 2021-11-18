@@ -28,6 +28,10 @@ h6 {
   width: 6rem;
 }
 
+img {
+  max-width: 90%;
+}
+
 .forms {
   display: flex;
   justify-content: space-around;
@@ -99,4 +103,10 @@ h6 {
 .rating label input:focus:not(:checked) ~ .icon:last-child {
   color: #000;
   text-shadow: 0 0 5px rgb(236, 234, 89);
+}
+
+@media only screen and (max-width: 700px) {
+  .rating {
+    display: none;
+  }
 }
