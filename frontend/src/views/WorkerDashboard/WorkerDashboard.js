@@ -1,10 +1,11 @@
 import React from 'react';
 import './WorkerDashboard.css';
+import Navbar from '../../components/Navbar/Navbar';
 
 const WorkerDashboard = () => {
     return (
         <>
-        <h1>WorkerDashbord</h1>
+        <Navbar />
         </>
     )
 } 
