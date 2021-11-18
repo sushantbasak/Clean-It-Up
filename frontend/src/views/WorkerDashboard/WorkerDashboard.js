@@ -1,5 +1,6 @@
 import React from 'react';
 import './WorkerDashboard.css';
+
 import Navbar from '../../components/Navbar/Navbar';
 import JobList from '../../components/Jobs/JobList';
 

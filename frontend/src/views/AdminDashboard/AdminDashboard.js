@@ -1,10 +1,12 @@
 import React from 'react';
 import './AdminDashboard.css';
 
+import Navbar from '../../components/Navbar/Navbar';
+
 const AdminDashboard = () => {
     return (
         <>
-        <h2>Admin Dashboard </h2>
+        <Navbar />
         </>
     )
 }
