@@ -9,11 +9,11 @@ const LoginForm = () => {
         <div className="form-inputs">
           <div className="form-input">
             <label>Email: </label>
-            <input type="text" name="title" required />
+            <input type="email" name="email" required />
           </div>
           <div className="form-input">
             <label>Password: </label>
-            <input type="password" name="address" required />
+            <input type="password" name="password" required />
           </div>
         </div>
         <div className="form-submit">
