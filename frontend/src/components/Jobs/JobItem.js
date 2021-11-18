@@ -23,7 +23,7 @@ const JobItem = (props) => {
       <p>
         <i> {props.address} </i>
       </p>
-      {(props.role === '3' || props.role === '1') && (
+      {props.role === '3'  && (
         <div className="forms">
           <form className="rating">
             <label>
@@ -76,6 +76,21 @@ const JobItem = (props) => {
             {status===0 && <button className="closed" onClick={(e) => e.preventDefault()}>Job Closed</button>}
             {status===1 && <button className="accept" onClick={btnHandler}>Accept Job</button>}
             {status===2 && <button className="accepted" onClick={btnHandler}>Job Accepted</button>}
+          </form>
+        </div>
+      )}
+      {props.role === '1' && (
+        <div className="forms">
+           <form>
+            <button
+              className="delete"
+              onClick={(e) => {
+                e.preventDefault();
+                props.deleteHandler(props.id);
+              }}
+            >
+              Delete
+            </button>
           </form>
         </div>
       )}

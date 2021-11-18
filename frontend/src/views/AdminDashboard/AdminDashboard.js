@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './AdminDashboard.css';
 
 import Navbar from '../../components/Navbar/Navbar';
 import JobList from '../../components/Jobs/JobList';
 
 const AdminDashboard = () => {
-     const jobs = [
+     const [jobs, setJobs] = useState([
     {
       id: 1,
       title: 'Cleaning Job 1',
@@ -25,13 +25,18 @@ const AdminDashboard = () => {
       title: 'Cleaning Job 3',
       description: 'Clear blocked sewere',
       address: 'At Pitampura Delhi',
-      status: 0
+      status: 1
     },
-  ];
+  ]);
+
+
+  const deleteHandler = (id) => {
+    setJobs((prevState) => prevState.filter((job) => job.id !== id));
+  };
     return (
         <>
         <Navbar />
-        <JobList role="1" list={jobs} />
+        <JobList role="1" list={jobs} deleteJob={deleteHandler} />
         </>
     )
 }
