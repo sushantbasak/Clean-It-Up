@@ -1,0 +1,44 @@
+.login-form {
+  width: 50rem;
+  margin: 20px auto;
+  max-width: 90%;
+  border-radius: 12px;
+  padding: 1rem;
+  border: 2px solid black;
+}
+
+.form-input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: none;
+}
+
+.form-input input {
+  width: 40rem;
+  max-width: 60%;
+  margin: 0 auto;
+  border-radius: 10px;
+  padding: 0 10px;
+  background-color: whitesmoke;
+}
+
+.form-input label {
+  width: 5rem;
+  font-size: 1.1rem;
+}
+
+.form-submit {
+  text-align: center;
+}
+
+.form-submit button {
+  text-align: center;
+  margin-top: 10px;
+  margin-right: 10px;
+  width: 5rem;
+  background-color: rgb(121, 219, 121);
+  padding: 0.3rem;
+  border-radius: 12px;
+  box-shadow: none;
+}
