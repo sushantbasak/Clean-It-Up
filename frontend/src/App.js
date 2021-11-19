@@ -12,6 +12,7 @@ import UserRegister from './views/Register/UserRegister';
 import WorkerLogin from './views/Login/WorkerLogin';
 import WorkerRegister from './views/Register/WorkerRegister';
 import AdminLogin from './views/Login/AdminLogin';
+import EditProfile from './views/Profile/EditProfile';
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
         <Route exact path="/WorkerLogin" element={<WorkerLogin />} />
         <Route exact path="/WorkerRegister" element={<WorkerRegister />} />
         <Route exact path="/AdminLogin" element={<AdminLogin />} />
+        <Route exact path="/EditProfile" element={<EditProfile />} />
       </Routes>
     </div>
   );
