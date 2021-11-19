@@ -9,7 +9,7 @@ const Profile = (props) => {
     <div className="profile">
       <Navbar />
       <div className="profile-body">
-        <h2>Your Profile</h2>
+        <h2 className="profile-heading">Your Profile</h2>
         <img src="pp.png" alt="profile" className="pp" />
         <div className="data-line">
           <p>
