@@ -4,7 +4,7 @@
 }
 
 .profile-body {
-  background-color: rgb(234, 234, 236);
+  background-color: rgb(240, 240, 244);
   width: 40rem;
   max-width: 90%;
   margin: 40px auto;
@@ -16,6 +16,9 @@
 img {
   margin: 15px 0;
   border: 1px solid black;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 100%;
 }
 
 h2 {
