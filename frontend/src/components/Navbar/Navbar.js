@@ -18,7 +18,7 @@ const NavbarMain = () => {
               </Nav.Link>
             </Nav>
             <Nav>
-              <Nav.Link className="nav-link" href="/">
+              <Nav.Link className="nav-link" href="/EditProfile">
                 Edit Profile
               </Nav.Link>
               <Nav.Link className="nav-link" href="/about">

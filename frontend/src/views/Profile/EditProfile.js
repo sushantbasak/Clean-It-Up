@@ -11,11 +11,11 @@ const EditProfile = (props) => {
           <div className="form-inputs">
             <div className="form-input">
               <label>Username: </label>
-              <input type="text" name="username" required value={props.username} />
+              <input type="text" name="username" required value={props.user.username} />
             </div>
             <div className="form-input">
               <label>Address: </label>
-              <input type="text" name="address" required value={props.address} />
+              <input type="text" name="address" required value={props.user.address} />
             </div>
           </div>
           <div className="form-submit">

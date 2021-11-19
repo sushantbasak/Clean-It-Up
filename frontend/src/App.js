@@ -15,6 +15,13 @@ import AdminLogin from './views/Login/AdminLogin';
 import EditProfile from './views/Profile/EditProfile';
 
 const App = () => {
+  const user = {
+    username: 'User 1',
+    address: 'New Delhi',
+    email: 'user@mail.com',
+    password: '@#$$%#$^@@',
+  };
+
   return (
     <div className="App">
       <Routes>
@@ -28,7 +35,7 @@ const App = () => {
         <Route exact path="/WorkerLogin" element={<WorkerLogin />} />
         <Route exact path="/WorkerRegister" element={<WorkerRegister />} />
         <Route exact path="/AdminLogin" element={<AdminLogin />} />
-        <Route exact path="/EditProfile" element={<EditProfile />} />
+        <Route exact path="/EditProfile" element={<EditProfile user={user} />} />
       </Routes>
     </div>
   );
