@@ -9,6 +9,7 @@ const Profile = (props) => {
     <div className="profile">
       <Navbar />
       <div className="profile-body">
+        <h2>Your Profile</h2>
         <img src="garbage.jpg" alt="profile" />
         <div className="data-line">
           <p>
