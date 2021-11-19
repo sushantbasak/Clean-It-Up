@@ -8,7 +8,7 @@ const UserRegister = () => {
   return (
     <>
       <Navbar />
-      <RegisterForm title="User Registration" />
+      <RegisterForm title="User Registration" to="#" />
     </>
   );
 };

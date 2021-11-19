@@ -5,7 +5,7 @@ const RegisterForm = (props) => {
   return (
     <div className="register-form">
       <h2 className="heading"> {props.title} </h2>
-      <form>
+      <form method="POST" action={props.to}>
         <div className="form-inputs">
           <div className="form-input">
             <label>Username: </label>
