@@ -10,6 +10,7 @@ import AdminDashboard from './views/AdminDashboard/AdminDashboard';
 import UserLogin from './views/Login/UserLogin';
 import UserRegister from './views/Register/UserRegister';
 import WorkerLogin from './views/Login/WorkerLogin';
+import WorkerRegister from './views/Register/WorkerRegister';
 import AdminLogin from './views/Login/AdminLogin';
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
         <Route exact path="/UserLogin" element={<UserLogin />} />
         <Route exact path="/UserRegister" element={<UserRegister />} />
         <Route exact path="/WorkerLogin" element={<WorkerLogin />} />
+        <Route exact path="/WorkerRegister" element={<WorkerRegister />} />
         <Route exact path="/AdminLogin" element={<AdminLogin />} />
       </Routes>
     </div>
