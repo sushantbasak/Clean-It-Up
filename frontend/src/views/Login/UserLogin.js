@@ -8,7 +8,7 @@ const UserLogin = () => {
   return (
     <>
       <Navbar />
-      <LoginForm />
+      <LoginForm title="User Login" to="#" />
     </>
   );
 };
