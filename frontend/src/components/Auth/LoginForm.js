@@ -1,5 +1,6 @@
 import React from 'react';
 import './LoginForm.css';
+import { Link } from 'react-router-dom';
 
 const LoginForm = (props) => {
   return (
@@ -17,7 +18,12 @@ const LoginForm = (props) => {
           </div>
         </div>
         <div className="form-submit">
-          <button type="submit">Login</button>
+          <button className="back">
+            <Link to="/">Back</Link>
+          </button>
+          <button type="submit" className="submit-btn">
+            Login
+          </button>
         </div>
       </form>
     </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import './RegisterForm.css';
+import { Link } from 'react-router-dom';
 
 const RegisterForm = (props) => {
   return (
@@ -25,6 +26,9 @@ const RegisterForm = (props) => {
           </div>
         </div>
         <div className="form-submit">
+          <button className="back">
+            <Link to="/">Back</Link>
+          </button>
           <button type="submit">Register</button>
         </div>
       </form>
