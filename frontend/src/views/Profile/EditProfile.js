@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './EditProfile.css';
 import { Link } from 'react-router-dom';
 
 const EditProfile = (props) => {
+  const [username, setUsername] = useState(props.user.username);
+  const [address, setAddress] = useState(props.user.address);
+
   return (
     <>
       <div className="login-form">
@@ -11,11 +14,17 @@ const EditProfile = (props) => {
           <div className="form-inputs">
             <div className="form-input">
               <label>Username: </label>
-              <input type="text" name="username" required value={props.user.username} />
+              <input
+                type="text"
+                name="username"
+                required
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
             </div>
             <div className="form-input">
               <label>Address: </label>
-              <input type="text" name="address" required value={props.user.address} />
+              <input type="text" name="address" required value={address} onChange={(e) => setAddress(e.target.value)} />
             </div>
           </div>
           <div className="form-submit">
