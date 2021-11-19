@@ -26,9 +26,9 @@ const RegisterForm = (props) => {
           </div>
         </div>
         <div className="form-submit">
-          <button className="back">
-            <Link to="/">Back</Link>
-          </button>
+          <Link to="/">
+            <button className="back">Back</button>
+          </Link>
           <button type="submit">Register</button>
         </div>
       </form>
