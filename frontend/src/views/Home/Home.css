@@ -9,7 +9,8 @@
 }
 
 .block {
-  background-color: rgb(217, 223, 221);
+  background-color: rgb(236, 238, 237);
   width: 20rem;
   padding: 2rem;
+  border-radius: 10px;
 }
