@@ -1,10 +1,10 @@
 import React from 'react';
 import './RegisterForm.css';
 
-const RegisterForm = () => {
+const RegisterForm = (props) => {
   return (
     <div className="register-form">
-      <h2 className="heading">User Registration</h2>
+      <h2 className="heading"> {props.title} </h2>
       <form>
         <div className="form-inputs">
           <div className="form-input">

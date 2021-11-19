@@ -8,7 +8,7 @@ const WorkerRegister = () => {
   return (
     <>
       <Navbar />
-      <RegisterForm />
+      <RegisterForm title="Worker Registration" />
     </>
   );
 };
