@@ -10,7 +10,7 @@ const Profile = (props) => {
       <Navbar />
       <div className="profile-body">
         <h2>Your Profile</h2>
-        <img src="pp.png" alt="profile" />
+        <img src="pp.png" alt="profile" className="pp" />
         <div className="data-line">
           <p>
             <b>Username: </b> {props.user.username}

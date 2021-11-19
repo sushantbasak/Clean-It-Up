@@ -18,8 +18,8 @@ const NavbarMain = () => {
               </Nav.Link>
             </Nav>
             <Nav>
-              <Nav.Link className="nav-link" href="/EditProfile">
-                Edit Profile
+              <Nav.Link className="nav-link" href="/Profile">
+                Profile
               </Nav.Link>
               <Nav.Link className="nav-link" href="/about">
                 Logout

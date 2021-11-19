@@ -28,9 +28,10 @@ const EditProfile = (props) => {
             </div>
           </div>
           <div className="form-submit">
-            <button className="back">
-              <Link to="/">Back</Link>
-            </button>
+            <Link to="/Profile">
+              <button className="back">Back</button>
+            </Link>
+
             <button type="submit" className="submit-btn">
               Update
             </button>
