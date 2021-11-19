@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import './EditProfile.css';
 import { Link } from 'react-router-dom';
 
+import Navbar from '../../components/Navbar/Navbar';
+
 const EditProfile = (props) => {
   const [username, setUsername] = useState(props.user.username);
   const [address, setAddress] = useState(props.user.address);
 
   return (
     <>
+      <Navbar />
       <div className="login-form">
         <h2 className="heading"> Edit Profile </h2>
         <form method="POST">
