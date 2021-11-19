@@ -8,7 +8,7 @@ const Home = () => {
     <div className="home">
       <Navbar />
       <div className="main">
-        <div className="block">
+        <div className="block user-block">
           <h2 className="block-heading">User</h2>
           <img src="user.png" alt="img" className="image-dash" />
           <div className="links">
@@ -18,9 +18,9 @@ const Home = () => {
             <br />
           </div>
         </div>
-        <div className="block">
+        <div className="block worker-block">
           <h2 className="block-heading">Worker</h2>
-          <img src="user.png" alt="img" className="image-dash" />
+          <img src="worker.png" alt="img" className="image-dash" />
           <div className="links">
             <Link to="/WorkerLogin">Worker Login</Link>
             <br />
@@ -28,9 +28,9 @@ const Home = () => {
             <br />
           </div>
         </div>
-        <div className="block">
+        <div className="block admin-block">
           <h2 className="block-heading">Admin</h2>
-          <img src="user.png" alt="img" className="image-dash" />
+          <img src="admin.png" alt="img" className="image-dash" />
           <div className="admin-links">
             <Link to="/AdminLogin">Admin Login</Link>
             <br />
