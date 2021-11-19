@@ -7,13 +7,18 @@
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
+  margin-top: 30px;
 }
 
 .block {
   background-color: rgb(236, 238, 237);
   width: 20rem;
+  height: 20rem;
   padding: 2rem;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .block a {
@@ -24,4 +29,18 @@
 
 .block a:hover {
   color: blue;
+}
+
+.block-heading {
+  font-size: 2.5rem;
+}
+
+.links {
+  justify-self: center;
+  margin-top: 30px;
+}
+
+.image-dash {
+  width: 7.5rem;
+  height: 7.5rem;
 }
