@@ -1,10 +1,12 @@
 import React from 'react';
 import './Profile.css';
 
+import Navbar from '../../components/Navbar/Navbar';
+
 const Profile = () => {
   return (
     <>
-      <h1>PRfooile</h1>
+      <Navbar />
     </>
   );
 };
