@@ -8,7 +8,7 @@ const AdminLogin = () => {
   return (
     <>
       <Navbar />
-      <LoginForm title="AdminLogin" to="#" />
+      <LoginForm title="Admin Login" to="#" />
     </>
   );
 };
