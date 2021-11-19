@@ -2,6 +2,7 @@ import React from 'react';
 import './Profile.css';
 
 import Navbar from '../../components/Navbar/Navbar';
+import { Link } from 'react-router-dom';
 
 const Profile = (props) => {
   return (
@@ -24,6 +25,9 @@ const Profile = (props) => {
             <b>Address: </b> {props.user.address}
           </p>
         </div>
+        <button className="accept">
+          <Link to="/EditProfile">Edit Profile</Link>
+        </button>
       </div>
     </div>
   );
