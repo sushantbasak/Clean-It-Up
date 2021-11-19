@@ -7,6 +7,11 @@ import About from './views/About/About';
 import UserDashboard from './views/UserDashboard/UserDashboard';
 import WorkerDashboard from './views/WorkerDashboard/WorkerDashboard';
 import AdminDashboard from './views/AdminDashboard/AdminDashboard';
+import UserLogin from './views/Login/UserLogin';
+import UserRegister from './views/Register/UserRegister';
+import WorkerLogin from './views/Login/WorkerLogin';
+import WorkerRegister from './views/Register/WorkerRegister';
+import AdminLogin from './views/Login/AdminLogin';
 
 const App = () => {
   return (
@@ -17,6 +22,11 @@ const App = () => {
         <Route exact path="/UserDashboard" element={<UserDashboard />} />
         <Route exact path="/WorkerDashboard" element={<WorkerDashboard />} />
         <Route exact path="/AdminDashboard" element={<AdminDashboard />} />
+        <Route exact path="/UserLogin" element={<UserLogin />} />
+        <Route exact path="/UserRegister" element={<UserRegister />} />
+        <Route exact path="/WorkerLogin" element={<WorkerLogin />} />
+        <Route exact path="/WorkerRegister" element={<WorkerRegister />} />
+        <Route exact path="/AdminLogin" element={<AdminLogin />} />
       </Routes>
     </div>
   );
