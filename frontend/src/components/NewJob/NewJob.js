@@ -36,15 +36,15 @@ const NewJob = (props) => {
       {open && (
         <form onSubmit={submitHandler}>
           <div className="form-inputs">
-            <div className="form-control">
+            <div className="job-control">
               <label>Title: </label>
               <input type="text" value={title} name="title" required onChange={(e) => setTitle(e.target.value)} />
             </div>
-            <div className="form-control">
+            <div className="job-control">
               <label>Address: </label>
               <input type="text" value={address} name="address" required onChange={(e) => setAddress(e.target.value)} />
             </div>
-            <div className="form-control">
+            <div className="job-control">
               <label>Description: </label>
               <textarea
                 rows="5"
@@ -54,7 +54,7 @@ const NewJob = (props) => {
                 onChange={(e) => setDescription(e.target.value)}
               />
             </div>
-            <div className="form-control upload">
+            <div className="job-control upload">
               <label>Image:</label>
               <input type="file" id="myFile" name="image" onChange={(e) => setImage(e.target.value)} />
             </div>
