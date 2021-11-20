@@ -38,8 +38,8 @@
   font-size: 1.2rem;
 }
 
-.block a:hover {
-  color: blue;
+.block button:hover {
+  color: black;
 }
 
 .block-heading {
@@ -48,7 +48,7 @@
 
 .links {
   justify-self: center;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .image-dash {
@@ -59,4 +59,23 @@
 
 .admin-links {
   margin-top: 45px;
+}
+
+.user-block button {
+  margin: 4px;
+  border-radius: 10px;
+  background-color: rgb(250, 154, 154);
+  color: white;
+}
+.worker-block button {
+  margin: 4px;
+  border-radius: 10px;
+  background-color: rgb(74, 206, 116);
+  color: white;
+}
+.admin-block button {
+  margin: 4px;
+  border-radius: 10px;
+  background-color: rgb(117, 146, 241);
+  color: white;
 }

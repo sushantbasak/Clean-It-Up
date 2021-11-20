@@ -12,9 +12,13 @@ const Home = () => {
           <h2 className="block-heading">User</h2>
           <img src="user.png" alt="img" className="image-dash" />
           <div className="links">
-            <Link to="/UserLogin">User Login</Link>
+            <Link to="/UserLogin">
+              <button className="login-btn">User Login</button>
+            </Link>
             <br />
-            <Link to="/UserRegister">User Register</Link>
+            <Link to="/UserRegister">
+              <button className="register-btn">User Register</button>
+            </Link>
             <br />
           </div>
         </div>
@@ -22,9 +26,13 @@ const Home = () => {
           <h2 className="block-heading">Worker</h2>
           <img src="worker.png" alt="img" className="image-dash" />
           <div className="links">
-            <Link to="/WorkerLogin">Worker Login</Link>
+            <Link to="/WorkerLogin">
+              <button>Worker Login</button>
+            </Link>
             <br />
-            <Link to="/WorkerRegister">Worker Register</Link>
+            <Link to="/WorkerRegister">
+              <button>Worker Register</button>
+            </Link>
             <br />
           </div>
         </div>
@@ -32,7 +40,9 @@ const Home = () => {
           <h2 className="block-heading">Admin</h2>
           <img src="admin.png" alt="img" className="image-dash" />
           <div className="admin-links">
-            <Link to="/AdminLogin">Admin Login</Link>
+            <Link to="/AdminLogin">
+              <button>Admin Login</button>
+            </Link>
             <br />
           </div>
         </div>
