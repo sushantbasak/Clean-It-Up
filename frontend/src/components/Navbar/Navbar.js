@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const NavbarMain = () => {
   return (
     <div>
-      <Navbar bg="light" expand="lg">
+      <Navbar bg="dark" variant="dark" expand="lg" className="navbar">
         <Container fluid>
           <Navbar.Brand href="#">Clean It Up</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />

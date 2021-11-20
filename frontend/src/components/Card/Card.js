@@ -19,7 +19,7 @@ const InfoCard = () => {
       <Carousel.Item interval={3000} className="card-item">
         <img src="ethic.jpg" alt="garbage" />
         <h3>Our Ethics</h3>
-        <p>Our ethics are to complete a registered job in time.</p>
+        <p>Our ethics are to complete all registered job in time.</p>
       </Carousel.Item>
     </Carousel>
   );
