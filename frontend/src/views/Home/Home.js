@@ -1,9 +1,10 @@
 import React from 'react';
-import Navbar from '../../components/Navbar/Navbar';
-import { Link } from 'react-router-dom';
 import './Home.css';
-import { Card, Button } from 'react-bootstrap';
+
+import Navbar from '../../components/Navbar/Navbar';
+import Card from '../../components/Card/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
@@ -49,15 +50,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <Card className="text-center">
-        <Card.Header>Featured</Card.Header>
-        <Card.Body>
-          <Card.Title>Special title treatment</Card.Title>
-          <Card.Text>With supporting text below as a natural lead-in to additional content.</Card.Text>
-          <Button variant="primary">Go somewhere</Button>
-        </Card.Body>
-        <Card.Footer className="text-muted">2 days ago</Card.Footer>
-      </Card>
+      <Card />
     </div>
   );
 };

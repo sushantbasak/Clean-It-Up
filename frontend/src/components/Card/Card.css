@@ -1,0 +1,19 @@
+.card-item {
+  text-align: center;
+}
+
+.crousel {
+  color: black;
+  background-color: #d9d9d9;
+  width: 60rem;
+  margin: 50px auto;
+  max-width: 95%;
+  text-align: center;
+  border-radius: 10px;
+  padding: 2rem;
+}
+
+.card-item img {
+  margin: 20px;
+  border-radius: 10px;
+}
