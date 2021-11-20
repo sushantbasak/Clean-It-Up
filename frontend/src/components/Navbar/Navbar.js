@@ -13,9 +13,6 @@ const NavbarMain = () => {
               <Nav.Link className="nav-link" href="/">
                 Home
               </Nav.Link>
-              <Nav.Link className="nav-link" href="/about">
-                About
-              </Nav.Link>
             </Nav>
             <Nav>
               <Nav.Link className="nav-link" href="/Profile">

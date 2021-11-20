@@ -11,9 +11,9 @@
 }
 
 .block {
-  width: 20rem;
-  height: 20rem;
-  padding: 2rem;
+  width: 21rem;
+  height: 21rem;
+  padding: 2.5rem;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
