@@ -9,17 +9,17 @@ const InfoCard = () => {
       <Carousel.Item interval={3000} className="card-item">
         <img src="garbage.jpg" alt="garbage" />
         <h3>Our Aim</h3>
-        <p>Our aim is to make the world clean and free of diseases</p>
+        <p>Our aim is to make the India the cleanest country in the world.</p>
       </Carousel.Item>
       <Carousel.Item interval={3000} className="card-item">
         <img src="garbage.jpg" alt="garbage" />
-        <h3>Second slide label</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <h3>Our motivation</h3>
+        <p>Our motivation is cleanliness will eleminate all diseases.</p>
       </Carousel.Item>
       <Carousel.Item interval={3000} className="card-item">
         <img src="garbage.jpg" alt="garbage" />
-        <h3>Third slide label</h3>
-        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+        <h3>Our Ethics</h3>
+        <p>Our ethics are to complete a registered job in time.</p>
       </Carousel.Item>
     </Carousel>
   );
