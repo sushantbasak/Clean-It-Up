@@ -3,6 +3,7 @@ import './Home.css';
 
 import Navbar from '../../components/Navbar/Navbar';
 import Card from '../../components/Card/Card';
+import Bottom from '../../components/Bottom/Bottom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 
@@ -51,6 +52,7 @@ const Home = () => {
         </div>
       </div>
       <Card />
+      <Bottom />
     </div>
   );
 };
