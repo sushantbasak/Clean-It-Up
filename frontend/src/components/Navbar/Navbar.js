@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const NavbarMain = () => {
   return (
     <div>
-      <Navbar bg="light" expand="lg">
+      <Navbar bg="dark" variant="dark" expand="lg" className="navbar">
         <Container fluid>
           <Navbar.Brand href="#">Clean It Up</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
@@ -12,9 +12,6 @@ const NavbarMain = () => {
             <Nav className="me-auto my-2 my-lg-0 nav" style={{ maxHeight: '100px' }} navbarScroll>
               <Nav.Link className="nav-link" href="/">
                 Home
-              </Nav.Link>
-              <Nav.Link className="nav-link" href="/about">
-                About
               </Nav.Link>
             </Nav>
             <Nav>
