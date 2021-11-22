@@ -8,7 +8,7 @@ const UserRegister = () => {
   return (
     <>
       <Navbar />
-      <RegisterForm title="User Registration" to="#" />
+      <RegisterForm title="User Registration" to="http://localhost:8001/api/v1/user/register" />
     </>
   );
 };

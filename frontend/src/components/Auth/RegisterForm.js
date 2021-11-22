@@ -9,20 +9,28 @@ const RegisterForm = (props) => {
       <form method="POST" action={props.to}>
         <div className="form-inputs">
           <div className="form-input">
-            <label>Username: </label>
-            <input type="text" name="username" required />
+            <label>First Name: </label>
+            <input type="text" name="firstName" required />
+          </div>
+          <div className="form-input">
+            <label>Last Name: </label>
+            <input type="text" name="lastName" required />
           </div>
           <div className="form-input">
             <label>Email: </label>
             <input type="email" name="email" required />
           </div>
-          <div className="form-input">
+          {/* <div className="form-input">
             <label>Address: </label>
             <input type="address" name="address" required />
-          </div>
+          </div> */}
           <div className="form-input">
             <label>Password: </label>
             <input type="password" name="password" required />
+          </div>
+          <div className="form-input">
+            <label>Confirm Password: </label>
+            <input type="password" name="confirmPassword" required />
           </div>
         </div>
         <div className="form-submit">
