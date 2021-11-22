@@ -165,7 +165,7 @@ const updateUser = async (req, res) => {
     if (updatedUser.status === 'ERROR_FOUND')
       throw new Error('Unable to Update User in Database');
 
-    if (user.status === 'NOT_FOUND') {
+    if (updatedUser.status === 'NOT_FOUND') {
       return res.sendError(
         httpCode.StatusCodes.BAD_REQUEST,
         MESSAGES.api.USER_NOT_FOUND
