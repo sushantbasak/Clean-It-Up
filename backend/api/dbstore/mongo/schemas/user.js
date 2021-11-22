@@ -12,6 +12,15 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Please add Last name'],
   },
+  aadhar: {
+    type: Number,
+  },
+  pincode: {
+    type: Number,
+  },
+  city: {
+    type: String,
+  },
   email: {
     type: String,
     required: [true, 'Please add an email'],
