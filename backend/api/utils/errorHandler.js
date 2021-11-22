@@ -1,6 +1,5 @@
 'use strict';
 
-const sentry = require('@sentry/node');
 const { red } = require('chalk');
 
 const extractError = (error) => {
