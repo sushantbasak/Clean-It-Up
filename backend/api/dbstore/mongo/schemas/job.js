@@ -12,6 +12,11 @@ const jobSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Please add Last name'],
   },
+  level: {
+    type: Number,
+    min: 0,
+    max: 5,
+  },
   pincode: {
     type: Number,
   },
