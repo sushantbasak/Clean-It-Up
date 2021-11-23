@@ -11,6 +11,8 @@ const {
   getPassword,
 } = require('./queries/user');
 
+const { createJob, findAllJob } = require('./queries/job');
+
 mongoose.connect(
   mongoDB,
   {
@@ -27,6 +29,8 @@ const dbStoreHandler = {
   findUser,
   updateUser,
   getPassword,
+  createJob,
+  findAllJob,
 };
 
 module.exports = dbStoreHandler;
