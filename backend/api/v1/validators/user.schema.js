@@ -3,7 +3,7 @@ const { Joi } = require('celebrate');
 const Pattern =
   '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[?!@$%^*-]).{8,50}$';
 
-const workerSchema = Joi.object().keys({
+const userSchema = Joi.object().keys({
   mode: Joi.number().allow('').default(1),
   firstName: Joi.string().when('mode', {
     is: 1,
