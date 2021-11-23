@@ -23,11 +23,26 @@ const userSchema = Joi.object().keys({
   password: Joi.string().when('mode', {
     is: 1,
     then: Joi.string().pattern(new RegExp(Pattern)),
-    otherwise: Joi.string().allow('').optional(),
   }),
   confirmPassword: Joi.string().when('password', {
     then: Joi.string().valid(Joi.ref('password')).required(),
     otherwise: Joi.string().allow('').optional(),
+  }),
+  aadhar: Joi.string().when('mode', {
+    is: 1,
+    then: Joi.string().length().max(12).min(12),
+  }),
+  pincode: Joi.string().when('mode', {
+    is: 1,
+    then: Joi.string().length().max(6).min(6),
+  }),
+  phone: Joi.string().when('mode', {
+    is: 1,
+    then: Joi.string().length().max(10).min(10),
+  }),
+  city: Joi.string().when('mode', {
+    is: 1,
+    then: Joi.string().required(),
   }),
 });
 
