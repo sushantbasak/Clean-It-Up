@@ -15,6 +15,7 @@ const { MESSAGES } = require('../../../constants');
 const { generateAuthToken, protect } = require('../middleware/auth');
 const { generateHash, compareHash, verifyHash } = require('../middleware/hash');
 const { userSchema, loginSchema } = require('../validators/user.schema');
+const { workerNotAllowed } = require('../middleware/role');
 
 // Functions
 
@@ -213,6 +214,7 @@ router.patch(
   celebrate({
     body: userSchema,
   }),
+  workerNotAllowed,
   updateUser
 );
 
