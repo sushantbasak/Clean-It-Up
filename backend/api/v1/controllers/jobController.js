@@ -44,7 +44,9 @@ const createJob = async (req, res) => {
 
 const fetchJob = async (req, res) => {
   try {
-    const fetchAllJobs = await jobService.findAllJob({});
+    const fetchAllJobs = await jobService.findAllJob({
+      isVerified: true,
+    });
 
     if (fetchAllJobs.status === 'ERROR_FOUND')
       throw new Error('Something went wrong');
@@ -107,14 +109,18 @@ const fetchAcceptedJob = async (req, res) => {
   }
 };
 
-router.post('/create', protect, userAccessOnly, createJob);
+// All Verified Jobs
 
 router.get('/all', protect, fetchJob);
 
 // Route for the Job Created by a User
+
+router.post('/create', protect, userAccessOnly, createJob);
+
 router.get('/my', protect, userAccessOnly, fetchMyJob);
 
 // Route for the Job Accepted by a Worker
+
 router.get('/myjob', protect, workerAccessOnly, fetchAcceptedJob);
 
 module.exports = router;
