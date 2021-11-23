@@ -33,4 +33,24 @@ const findAllJob = async (body) => {
   }
 };
 
-module.exports = { createJob, findAllJob };
+const updateJob = async (filter, updateData) => {
+  try {
+    const updatedData = await Job.schema.findOneAndUpdate(filter, updateData, {
+      new: true,
+      runValidators: true,
+    });
+
+    if (updatedData._id == null) return { result: null, hasError: null };
+
+    return {
+      result: updatedData,
+      hasError: null,
+    };
+  } catch (ex) {
+    ErrorHandler.extractError(ex);
+
+    return { result: null, hasError: true };
+  }
+};
+
+module.exports = { createJob, findAllJob, updateJob };
