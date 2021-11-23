@@ -21,6 +21,16 @@ const restrictWorker = (req, res, next) => {
   next();
 };
 
+const restrictUser = (req, res, next) => {
+  if (req.user.role === 0)
+    return res.sendError(
+      httpCode.StatusCodes.UNAUTHORIZED,
+      MESSAGES.api.UNAUTHORIZED_USER
+    );
+
+  next();
+};
+
 const userAccessOnly = (req, res, next) => {
   if (req.user.role !== 0)
     return res.sendError(
@@ -31,4 +41,20 @@ const userAccessOnly = (req, res, next) => {
   next();
 };
 
-module.exports = { adminProtect, restrictWorker, userAccessOnly };
+const workerAccessOnly = (req, res, next) => {
+  if (req.user.role !== 1)
+    return res.sendError(
+      httpCode.StatusCodes.UNAUTHORIZED,
+      MESSAGES.api.UNAUTHORIZED_USER
+    );
+
+  next();
+};
+
+module.exports = {
+  adminProtect,
+  restrictWorker,
+  userAccessOnly,
+  restrictUser,
+  workerAccessOnly,
+};
