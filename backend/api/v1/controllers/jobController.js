@@ -67,7 +67,7 @@ const fetchJob = async (req, res) => {
 
 const fetchMyJob = async (req, res) => {
   try {
-    const fetchMyJobs = await jobService.findMyJob({ postedBy: req.user._id });
+    const fetchMyJobs = await jobService.findAllJob({ postedBy: req.user._id });
 
     if (fetchMyJobs.status === 'ERROR_FOUND')
       throw new Error('Something went wrong');
@@ -88,7 +88,7 @@ const fetchMyJob = async (req, res) => {
 
 const fetchAcceptedJob = async (req, res) => {
   try {
-    const fetchAcceptJobs = await jobService.findAcceptJob({
+    const fetchAcceptJobs = await jobService.findAllJob({
       assignedTo: req.user._id,
     });
 
@@ -113,13 +113,13 @@ const fetchAcceptedJob = async (req, res) => {
 
 router.get('/all', protect, fetchJob);
 
-// Route for the Job Created by a User
+//Job Route -> User
 
 router.post('/create', protect, userAccessOnly, createJob);
 
 router.get('/my', protect, userAccessOnly, fetchMyJob);
 
-// Route for the Job Accepted by a Worker
+// Job Route -> Worker
 
 router.get('/myjob', protect, workerAccessOnly, fetchAcceptedJob);
 
