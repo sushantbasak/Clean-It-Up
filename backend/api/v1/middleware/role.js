@@ -11,7 +11,7 @@ const adminProtect = (req, res, next) => {
   next();
 };
 
-const workerNotAllowed = (req, res, next) => {
+const restrictWorker = (req, res, next) => {
   if (req.user.role === 1)
     return res.sendError(
       httpCode.StatusCodes.UNAUTHORIZED,
@@ -21,4 +21,4 @@ const workerNotAllowed = (req, res, next) => {
   next();
 };
 
-module.exports = { adminProtect, workerNotAllowed };
+module.exports = { adminProtect, restrictWorker };
