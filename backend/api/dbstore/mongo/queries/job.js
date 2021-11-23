@@ -25,8 +25,6 @@ const findAllJob = async (body) => {
 
     const final = result.toJSON();
 
-    delete final.password;
-
     return { result: final, hasError: null };
   } catch (ex) {
     ErrorHandler.extractError(ex);
