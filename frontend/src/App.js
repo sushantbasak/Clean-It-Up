@@ -1,6 +1,6 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import React from 'react';
+import React, { useState } from 'react';
 
 import Home from './views/Home/Home';
 import UserDashboard from './views/UserDashboard/UserDashboard';
@@ -22,6 +22,8 @@ const App = () => {
     password: '@#$$%#$^@@',
   };
 
+  const [token, setToken] = useState('');
+
   return (
     <div className="App">
       <Routes>
@@ -29,12 +31,12 @@ const App = () => {
         <Route exact path="/UserDashboard" element={<UserDashboard />} />
         <Route exact path="/WorkerDashboard" element={<WorkerDashboard />} />
         <Route exact path="/AdminDashboard" element={<AdminDashboard />} />
-        <Route exact path="/UserLogin" element={<UserLogin />} />
+        <Route exact path="/UserLogin" element={<UserLogin setToken={setToken} />} />
         <Route exact path="/UserRegister" element={<UserRegister />} />
         <Route exact path="/WorkerLogin" element={<WorkerLogin />} />
         <Route exact path="/WorkerRegister" element={<WorkerRegister />} />
         <Route exact path="/AdminLogin" element={<AdminLogin />} />
-        <Route exact path="/Profile" element={<Profile user={user} />} />
+        <Route exact path="/Profile" element={<Profile user={user} token={token} />} />
         <Route exact path="/EditProfile" element={<EditProfile user={user} />} />
       </Routes>
     </div>
