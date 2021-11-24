@@ -26,8 +26,9 @@ Tackling this problem is of utmost importance because with such a large populati
 
 ### 1. Frontend
 1. React
-2. Bootstrap
-3. Google Maps API
+2. React Bootstrap
+3. React Router DOM
+4. Axios
 
 ### 2. Backend
 1. Node
