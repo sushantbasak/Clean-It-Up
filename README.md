@@ -38,21 +38,62 @@ Tackling this problem is of utmost importance because with such a large populati
 5. JWT
 6. Bcryptjs
 
-## Local Setup
+
+## :ballot_box_with_check: Prerequisites
+- Node.js (version 12+)
+- npm (version 6+)
+- MongoDB (version 4+)
+- Redis (version 6+)
+- ✅ To avail Google and LiChess authentication feature:
+  - Google Client ID and Secret Token
+  - LiChess Client ID and Secret Token
+
+## :arrow_down: Local Setup
 Clone the Clean It Up repository, and then follow the below mentioned steps for setting up backend and frontend seprately.
 
 ### 1. Frontend
-1. cd frontend/
+1. `cd frontend/`
 2. Run `npm install`
 3. Run `npm start'
 
 ### 2. Backend
-1. cd backend/
+1. `cd backend/`
 2. Run `npm install`.
-3. Set up environment variables in .env file
-4. run `npm start`
+3. Set up environment variables in .env file  
+4. run `npm start`  
 
 
+## :construction: Local Environment Variables
+
+For running this project locally :truck:, you need to setup and define the environment variables for both the client as well as the server.
+
+Create `.env` files in both `client` and `server` folder with the following variables:
+- Client:
+	- `NODE_ENV=development`
+	- `CI=false`
+	- `REACT_APP_DEV_API_URL=http://localhost:8000/api/`
+	- `REACT_APP_GOOGLE_CLIENT_ID=<your-google-client-id>`
+
+- Server:
+	- `NODE_ENV=development`
+	- `DEV_CLIENT_URL=http://localhost:3000`
+  	- `PUBLIC_KEY=<your-rsa-public-key>`
+  	- `PRIVATE_KEY=<your-rsa-private-key>`
+	- `DEV_DATABASE_URL=mongodb://127.0.0.1:27017/gambit`
+	- `DEV_STORAGE_URL=127.0.0.1:6379`
+	- `DEV_STORAGE_PSWD=<your-redis-instance-pswd>`
+	- `EMAIL=<your-google-oauthplayground-mail-id>`
+	- `GOOGLE_CLIENT_ID=<your-google-client-id>`
+	- `GOOGLE_CLIENT_SECRET=<your-google-client-secret>`
+	- `GOOGLE_REFRESH_TOKEN=<your-google-oauthplayground-refresh-token>`
+
+
+**Default Ports:**
+- React (or Client) - 3000
+- Node.js (or Server) - 8001
+- MongoDB (or Database) - 27017  
+
+  
 ## Home Page
 Home page is the landing page to the users and have User, Worker and Admin Panel with Login and Register functionality.
 
