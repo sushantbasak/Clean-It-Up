@@ -73,6 +73,26 @@ User, Worker and Admin can login by entering correct username and password on th
 
 ![image](https://user-images.githubusercontent.com/56028103/143226484-2b6179df-a510-4a91-b838-abad94271f56.png)
 
+## User Dashboard
+User Dashboard have various functionalities like creating a new job post, showing previously created job post by the user and rating the work done by worker.
+
+![image](https://user-images.githubusercontent.com/56028103/143228498-44a319d5-d4ec-491f-9ef0-527ef2470119.png)
+
+## Worker Dashboard
+Worker Dashboard have functionalities like viewing jobs, accepting job and leaving already accepted job.
+
+![image](https://user-images.githubusercontent.com/56028103/143228935-b6c120fc-65ff-47b4-b63a-3c44b50429e1.png)
+
+## Admin Dashboard
+Admin dashboard have option to verify worker, delete fake jobs and review the jobs completed
+
+![image](https://user-images.githubusercontent.com/56028103/143229166-fde52e7e-5e05-45d6-9c7c-e3ecfe6c7e24.png)
+
+## Profile
+User, Worker and Admin can view and edit their profile by clicking on profile option present on the Navbar.
+
+![image](https://user-images.githubusercontent.com/56028103/143229422-5d1a2bd4-3f23-4fca-bee2-764cc9916c00.png)
+
 
 
 
