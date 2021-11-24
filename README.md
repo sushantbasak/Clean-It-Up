@@ -39,19 +39,19 @@ Tackling this problem is of utmost importance because with such a large populati
 6. Bcryptjs
 
 ## Local Setup
-Clone the frontend and backend repositories, cd into them individually, and then follow the below mentioned steps for setting up backend and frontend seprately.
+Clone the Clean It Up repository, and then follow the below mentioned steps for setting up backend and frontend seprately.
 
 ### 1. Frontend
-1. Run `yarn install`.
-2. Generate your Map API key using this [link](https://console.cloud.google.com/google/maps-apis/overview?pli=1) and replace it with the keys in index.html & Map.js files of frontend.
-3. Change backend port in App.js file if you change it in backend, by default the backend is setup to run on port 3000.
+1. cd frontend/
+2. Run `npm install`
+3. Run `npm start'
 
 ### 2. Backend
-1. Run `npm install`.
-2. We used MongoDB Atlas for hosted database, you can have a local database if you want but we recommend using Atlas. If you are using Atlas replace your database link in keys.js file of backend.
-3. Set your JWT secret in keys.js file of backend.
+1. cd backend/
+2. Run `npm install`.
+3. Set up environment variables in .env file
+4. run `npm start`
 
-Run `npm start` in the Backend repo first and then in Frontend .
 
 ## Home Page
 Home page is the landing page to the users and have User, Worker and Admin Panel with Login and Register functionality.
