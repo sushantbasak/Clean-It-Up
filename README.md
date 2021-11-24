@@ -1,16 +1,16 @@
-# Clean-It-Up
+#  Clean-It-Up
 A website for improving Cleanliness.
 
-## Description
+## :memo: Description
 Clean It Up is a web-based application that will allow users to report/request any sanitation-related task. This task will be completed by one of the Sanitation workers. Finally, after completion of the job and verification by the admin job will be marked closed.
 
 ![image](https://user-images.githubusercontent.com/56028103/143193023-8ef07ef2-aa40-4670-b2e4-683ae4e56aa1.png)
 
-## Motivation
+## :bulb: Motivation
 With the rising importance of Cleanliness and Sanitation after the launch of the Swachh Bharat Mission in India, existing methodologies cannot deal with this problem efficiently.
 Tackling this problem is of utmost importance because with such a large population, if cleanliness and sanitation are not appropriately done, an outbreak of many diseases such as dengue, plague, etc. can take a severe hit on our population. Clean It Up will solve inefficient and lousy cleaning/garbage collection performed by authorities with no one to monitor them and manage them properly.
 
-## Main Features
+## :bookmark_tabs: Main Features
 - Different Panels for User, Worker and Admin
 - Login for User, Worker and Admin.
 - Register for new Users and Workers.
@@ -22,7 +22,12 @@ Tackling this problem is of utmost importance because with such a large populati
 - Admin can montor job uploaded as well as completed.
 - Only verified Workers by admin will be able to accept jobs.
 
-## Technologies and Packages Used
+## :ballot_box_with_check: Prerequisites
+- Node.js (version 12+)
+- npm (version 6+)
+- MongoDB (version 4+)
+
+## 🚀 Technologies and Packages Used
 
 ### 1. Frontend
 1. React
@@ -39,28 +44,23 @@ Tackling this problem is of utmost importance because with such a large populati
 6. Bcryptjs
 
 
-## :ballot_box_with_check: Prerequisites
-- Node.js (version 12+)
-- npm (version 6+)
-- MongoDB (version 4+)
-- Redis (version 6+)
-- ✅ To avail Google and LiChess authentication feature:
-  - Google Client ID and Secret Token
-  - LiChess Client ID and Secret Token
-
 ## :arrow_down: Local Setup
 Clone the Clean It Up repository, and then follow the below mentioned steps for setting up backend and frontend seprately.
 
-### 1. Frontend
-1. `cd frontend/`
-2. Run `npm install`
-3. Run `npm start'
 
-### 2. Backend
-1. `cd backend/`
-2. Run `npm install`.
-3. Set up environment variables in .env file  
-4. run `npm start`  
+```bash
+$ git clone https://github.com/sushantbasak/Clean-It-Up
+# navigate to the project's directory
+$ cd Clean-It-Up
+# install the dependencies for client
+$ cd frontend/ && npm install
+# install server dependencies
+$ cd server && npm install
+# start frontend
+$ npm start
+# start backend
+$ npm start
+```
 
 
 ## :construction: Local Environment Variables
@@ -70,27 +70,20 @@ For running this project locally :truck:, you need to setup and define the envir
 Create `.env` files in both `client` and `server` folder with the following variables:
 - Client:
 	- `NODE_ENV=development`
-	- `CI=false`
 	- `REACT_APP_DEV_API_URL=http://localhost:8000/api/`
-	- `REACT_APP_GOOGLE_CLIENT_ID=<your-google-client-id>`
-
+	
 - Server:
 	- `NODE_ENV=development`
-	- `DEV_CLIENT_URL=http://localhost:3000`
-  	- `PUBLIC_KEY=<your-rsa-public-key>`
-  	- `PRIVATE_KEY=<your-rsa-private-key>`
-	- `DEV_DATABASE_URL=mongodb://127.0.0.1:27017/gambit`
-	- `DEV_STORAGE_URL=127.0.0.1:6379`
-	- `DEV_STORAGE_PSWD=<your-redis-instance-pswd>`
-	- `EMAIL=<your-google-oauthplayground-mail-id>`
-	- `GOOGLE_CLIENT_ID=<your-google-client-id>`
-	- `GOOGLE_CLIENT_SECRET=<your-google-client-secret>`
-	- `GOOGLE_REFRESH_TOKEN=<your-google-oauthplayground-refresh-token>`
+  	- `PORT=8001`
+	- `DB_URL=mongodb://127.0.0.1:27017/clean-it-up`
+	- `SERVER_URL=http://localhost:8001`
+	- `JWT_SECRET=hello-world`
+	- `EXPIRESIN=365d`
+	- `SALTROUND=8`
 
 
 **Default Ports:**
 - React (or Client) - 3000
-- Node.js (or Server) - 8001
 - MongoDB (or Database) - 27017  
 
   
