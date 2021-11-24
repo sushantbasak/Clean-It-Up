@@ -13,10 +13,7 @@ const middleware = async () => {
   // enable cross domain access
   app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
-    res.header(
-      "Access-Control-Allow-Methods",
-      "GET,OPTIONS,PUT,POST,DELETE,PATCH"
-    );
+    res.header("Access-Control-Allow-Methods", "GET,OPTIONS,PUT,POST,DELETE");
     res.header(
       "Access-Control-Allow-Headers",
       "Origin, X-Requested-With, Content-Type, Accept, Authorization"
