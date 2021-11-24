@@ -25,13 +25,11 @@ Tackling this problem is of utmost importance because with such a large populati
 ## Technologies and Packages Used
 
 ### 1. Frontend
-
 1. React
 2. Bootstrap
 3. Google Maps API
 
 ### 2. Backend
-
 1. Node
 2. Express
 3. MongoDB
@@ -40,20 +38,41 @@ Tackling this problem is of utmost importance because with such a large populati
 6. Bcryptjs
 
 ## Local Setup
-
 Clone the frontend and backend repositories, cd into them individually, and then follow the below mentioned steps for setting up backend and frontend seprately.
 
 ### 1. Frontend
-
 1. Run `yarn install`.
 2. Generate your Map API key using this [link](https://console.cloud.google.com/google/maps-apis/overview?pli=1) and replace it with the keys in index.html & Map.js files of frontend.
 3. Change backend port in App.js file if you change it in backend, by default the backend is setup to run on port 3000.
 
 ### 2. Backend
-
 1. Run `npm install`.
 2. We used MongoDB Atlas for hosted database, you can have a local database if you want but we recommend using Atlas. If you are using Atlas replace your database link in keys.js file of backend.
 3. Set your JWT secret in keys.js file of backend.
 
 Run `npm start` in the Backend repo first and then in Frontend .
+
+## Home Page
+Home page is the landing page to the users and have User, Worker and Admin Panel with Login and Register functionality.
+
+![image](https://user-images.githubusercontent.com/56028103/143225826-e447d27d-6731-46e3-908b-653ba338cf71.png)
+
+## Register
+New Users and Workers can register by filling the registration form displayed after clicking on Register functionality in User or Worker Panel.
+
+![image](https://user-images.githubusercontent.com/56028103/143227156-e5922253-2cd4-413c-a6cd-49b237866962.png)
+
+![image](https://user-images.githubusercontent.com/56028103/143227222-b1ff2d23-4b19-406d-bba8-93e68a1735af.png)
+
+## Login Page
+User, Worker and Admin can login by entering correct username and password on their respective login page.
+
+![image](https://user-images.githubusercontent.com/56028103/143226333-b0bc6ff1-b516-4004-b96d-ac5006265135.png)
+
+![image](https://user-images.githubusercontent.com/56028103/143226401-80f829d3-951f-4d31-9c52-64c445cc76ba.png)
+
+![image](https://user-images.githubusercontent.com/56028103/143226484-2b6179df-a510-4a91-b838-abad94271f56.png)
+
+
+
 
