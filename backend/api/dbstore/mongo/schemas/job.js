@@ -12,6 +12,12 @@ const jobSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Please add Last name'],
   },
+  level: {
+    type: Number,
+    default: 1,
+    min: 1,
+    max: 5,
+  },
   pincode: {
     type: Number,
   },
@@ -27,15 +33,27 @@ const jobSchema = new mongoose.Schema({
   assignedTo: {
     type: mongoose.Schema.ObjectId,
     ref: COLLECTIONS.USER,
-    required: true,
   },
   isVerified: {
     type: Boolean,
     default: false,
   },
+  review: {
+    type: String,
+  },
   isCompleted: {
     type: Boolean,
     default: false,
+  },
+  isClosed: {
+    type: Boolean,
+    default: false,
+  },
+  rate: {
+    type: Number,
+    default: 1,
+    min: 1,
+    max: 5,
   },
   createdAt: {
     type: Date,

@@ -11,6 +11,8 @@ module.exports = {
     NOT_FOUND: 'Resource Looking for is not found.',
     USER_FOUND: 'User Account Found',
     USER_NOT_FOUND: 'User Account not found!',
+    JOB_FOUND: 'JOB Found',
+    JOB_NOT_FOUND: 'JOB not found!',
     MISSING_CREDENTIALS: 'Required Credentials not given',
     INVALID_CREDENTIALS: 'Credentials not matched',
     UPDATE_UNSUCCESSFULL: 'Unable to Update Requested Field',
