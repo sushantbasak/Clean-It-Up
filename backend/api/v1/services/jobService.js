@@ -94,7 +94,7 @@ const verifyJob = async (data) => {
 const rateJob = async (data) => {
   const { jobId, userId, rating } = data;
 
-  const getJob = await dbStoreHandler.findJob({ _id: jobId });
+  const getJob = await dbStoreHandler.findJob({ _id: jobId, postedBy: userId });
 
   if (getJob.hasError) return { status: 'ERROR_FOUND' };
 
@@ -106,7 +106,7 @@ const rateJob = async (data) => {
     return { status: 'NOT_FOUND' };
 
   const updatedJob = await dbStoreHandler.updateJob(
-    { _id: jobId },
+    { _id: jobId, postedBy: userId },
     { rate: rating }
   );
 

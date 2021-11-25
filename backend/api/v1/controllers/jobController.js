@@ -178,6 +178,30 @@ const leaveJob = async (req, res) => {
   }
 };
 
+const rateJob = async (req, res) => {
+  try {
+    const { jobId, rating } = req.query;
+
+    const { _id: userId } = req.user;
+
+    const rateJob = await jobService.rateJob({ jobId, userId, rating });
+
+    if (rateJob.status === 'ERROR_FOUND') throw new Error();
+
+    res.sendSuccess(
+      rateJob.result,
+      MESSAGES.api.CREATED,
+      httpCode.StatusCodes.CREATED
+    );
+  } catch (ex) {
+    ErrorHandler.extractError(ex);
+    res.sendError(
+      httpCode.StatusCodes.INTERNAL_SERVER_ERROR,
+      MESSAGES.api.SOMETHING_WENT_WRONG
+    );
+  }
+};
+
 // All Verified Jobs
 
 router.get('/all', protect, fetchJob);
@@ -187,6 +211,8 @@ router.get('/all', protect, fetchJob);
 router.post('/create', protect, userAccessOnly, createJob);
 
 router.get('/my', protect, userAccessOnly, fetchMyJob);
+
+router.get('/rate', protect, userAccessOnly, rateJob);
 
 // Job Route -> Worker
 
