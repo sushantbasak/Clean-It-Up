@@ -25,9 +25,22 @@ const findAllJob = async (data) => {
   return { result, status: 'JOB_FOUND' };
 };
 
-const selectJob = async (data) => {
+const leaveJob = async (data) => {
   const { jobId, workerId } = data;
 
+  const { result, hasError } = await dbStoreHandler.updateJob(
+    { _id: jobId, assignedTo: workerId },
+    { assignedTo: '' }
+  );
+
+  if (hasError) return { status: 'ERROR_FOUND' };
+
+  if (result === NULL) return { status: 'NOT_FOUND' };
+
+  return { result, status: 'SUCCESS' };
+};
+
+const acceptJob = async (data) => {
   const { result, hasError } = await dbStoreHandler.findJob({
     _id: jobId,
   });
@@ -36,25 +49,14 @@ const selectJob = async (data) => {
     return { status: 'ERROR_FOUND' };
   }
 
-  let updatedData;
+  if (result === NULL) return { status: 'NOT_FOUND' };
 
-  if (result.assignedTo === workerId) {
-    updatedData = await dbStoreHandler.updateJob(
-      { _id: jobId },
-      { assignedTo: '' }
-    );
-  } else if (result.assignedTo.length === 0) {
-    updatedData = await dbStoreHandler.updateJob(
-      { _id: jobId },
-      { assignedTo: workerId }
-    );
-  } else {
-    return { status: 'UNAUTHORIZED' };
-  }
+  if (result.assignedTo !== NULL) return { status: 'ALREADY_ASSIGNED' };
 
-  if (updatedData.hasError || updatedData.result === NULL) {
-    return { status: 'ERROR_FOUND' };
-  }
+  const updatedData = await dbStoreHandler.updateJob(
+    { _id: jobId },
+    { assignedTo: workerId }
+  );
 
   return { result: updatedData.result, status: 'SUCCESS' };
 };
@@ -114,7 +116,8 @@ const rateJob = async (data) => {
 const jobService = {
   createJob,
   findAllJob,
-  selectJob,
+  acceptJob,
+  leaveJob,
   completeJob,
   verifyJob,
   rateJob,
