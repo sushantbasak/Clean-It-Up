@@ -17,6 +17,7 @@ const {
   userAccessOnly,
   restrictWorker,
   workerAccessOnly,
+  adminProtect,
 } = require('../middleware/role');
 
 // Functions
@@ -53,8 +54,8 @@ const fetchJob = async (req, res) => {
 
     res.sendSuccess(
       fetchAllJobs.result,
-      MESSAGES.api.CREATED,
-      httpCode.StatusCodes.CREATED
+      MESSAGES.api.OK,
+      httpCode.StatusCodes.OK
     );
   } catch (ex) {
     ErrorHandler.extractError(ex);
@@ -74,8 +75,8 @@ const fetchMyJob = async (req, res) => {
 
     res.sendSuccess(
       fetchMyJobs.result,
-      MESSAGES.api.CREATED,
-      httpCode.StatusCodes.CREATED
+      MESSAGES.api.OK,
+      httpCode.StatusCodes.OK
     );
   } catch (ex) {
     ErrorHandler.extractError(ex);
@@ -97,8 +98,8 @@ const fetchAcceptedJob = async (req, res) => {
 
     res.sendSuccess(
       fetchAcceptJobs.result,
-      MESSAGES.api.CREATED,
-      httpCode.StatusCodes.CREATED
+      MESSAGES.api.OK,
+      httpCode.StatusCodes.OK
     );
   } catch (ex) {
     ErrorHandler.extractError(ex);
@@ -133,11 +134,7 @@ const acceptNewJob = async (req, res) => {
       );
     }
 
-    res.sendSuccess(
-      acceptJob.result,
-      MESSAGES.api.CREATED,
-      httpCode.StatusCodes.CREATED
-    );
+    res.sendSuccess(acceptJob.result, MESSAGES.api.OK, httpCode.StatusCodes.OK);
   } catch (ex) {
     ErrorHandler.extractError(ex);
     res.sendError(
@@ -164,11 +161,7 @@ const leaveJob = async (req, res) => {
       );
     }
 
-    res.sendSuccess(
-      leaveJob.result,
-      MESSAGES.api.CREATED,
-      httpCode.StatusCodes.CREATED
-    );
+    res.sendSuccess(leaveJob.result, MESSAGES.api.Ok, httpCode.StatusCodes.Ok);
   } catch (ex) {
     ErrorHandler.extractError(ex);
     res.sendError(
@@ -188,10 +181,28 @@ const rateJob = async (req, res) => {
 
     if (rateJob.status === 'ERROR_FOUND') throw new Error();
 
+    res.sendSuccess(rateJob.result, MESSAGES.api.OK, httpCode.StatusCodes.OK);
+  } catch (ex) {
+    ErrorHandler.extractError(ex);
+    res.sendError(
+      httpCode.StatusCodes.INTERNAL_SERVER_ERROR,
+      MESSAGES.api.SOMETHING_WENT_WRONG
+    );
+  }
+};
+
+const verifyJob = async (req, res) => {
+  try {
+    const { jobId } = req.query;
+
+    const getVerifiedJob = await jobService.verifyJob({ jobId });
+
+    if (getVerifedJob.status === 'ERROR_FOUND') throw new Error();
+
     res.sendSuccess(
-      rateJob.result,
+      getVerifiedJob.result,
       MESSAGES.api.CREATED,
-      httpCode.StatusCodes.CREATED
+      httpCode.StatusCodes.OK
     );
   } catch (ex) {
     ErrorHandler.extractError(ex);
@@ -221,5 +232,9 @@ router.get('/myjob', protect, workerAccessOnly, fetchAcceptedJob);
 router.get('/accept', protect, workerAccessOnly, acceptNewJob);
 
 router.get('/leave', protect, workerAccessOnly, leaveJob);
+
+// Job Route -> Admin
+
+router.get('/verify', protect, adminProtect, verifyJob);
 
 module.exports = router;
