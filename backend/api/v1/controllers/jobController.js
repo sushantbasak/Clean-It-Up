@@ -109,6 +109,75 @@ const fetchAcceptedJob = async (req, res) => {
   }
 };
 
+const acceptNewJob = async (req, res) => {
+  try {
+    const { jobId } = req.query;
+
+    const { _id: workerId } = req.user;
+
+    const acceptJob = await jobService.acceptJob({ jobId, workerId });
+
+    if (acceptJob.status === 'ERROR_FOUND') throw new Error();
+
+    if (acceptJob.status === 'NOT_FOUND') {
+      res.sendSuccess(
+        MESSAGES.api.JOB_NOT_FOUND,
+        httpCode.StatusCodes.BAD_REQUEST
+      );
+    }
+
+    if (acceptJob.status === 'ALREADY_ASSIGNED') {
+      res.sendSuccess(
+        MESSAGES.api.JOB_ALREADY_ASSIGNED,
+        httpCode.StatusCodes.BAD_REQUEST
+      );
+    }
+
+    res.sendSuccess(
+      acceptJob.result,
+      MESSAGES.api.CREATED,
+      httpCode.StatusCodes.CREATED
+    );
+  } catch (ex) {
+    ErrorHandler.extractError(ex);
+    res.sendError(
+      httpCode.StatusCodes.INTERNAL_SERVER_ERROR,
+      MESSAGES.api.SOMETHING_WENT_WRONG
+    );
+  }
+};
+
+const leaveJob = async (req, res) => {
+  try {
+    const { jobId } = req.query;
+
+    const { _id: workerId } = req.user;
+
+    const leaveJob = await jobService.leaveJob({ jobId, workerId });
+
+    if (acceptJob.status === 'ERROR_FOUND') throw new Error();
+
+    if (acceptJob.status === 'NOT_FOUND') {
+      res.sendSuccess(
+        MESSAGES.api.JOB_NOT_FOUND,
+        httpCode.StatusCodes.BAD_REQUEST
+      );
+    }
+
+    res.sendSuccess(
+      leaveJob.result,
+      MESSAGES.api.CREATED,
+      httpCode.StatusCodes.CREATED
+    );
+  } catch (ex) {
+    ErrorHandler.extractError(ex);
+    res.sendError(
+      httpCode.StatusCodes.INTERNAL_SERVER_ERROR,
+      MESSAGES.api.SOMETHING_WENT_WRONG
+    );
+  }
+};
+
 // All Verified Jobs
 
 router.get('/all', protect, fetchJob);
@@ -122,5 +191,9 @@ router.get('/my', protect, userAccessOnly, fetchMyJob);
 // Job Route -> Worker
 
 router.get('/myjob', protect, workerAccessOnly, fetchAcceptedJob);
+
+router.get('/accept', protect, workerAccessOnly, acceptNewJob);
+
+router.get('/leave', protect, workerAccessOnly, leaveJob);
 
 module.exports = router;

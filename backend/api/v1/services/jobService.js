@@ -41,6 +41,8 @@ const leaveJob = async (data) => {
 };
 
 const acceptJob = async (data) => {
+  const { jobId, workerId } = data;
+
   const { result, hasError } = await dbStoreHandler.findJob({
     _id: jobId,
   });

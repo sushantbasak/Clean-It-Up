@@ -13,6 +13,7 @@ module.exports = {
     USER_NOT_FOUND: 'User Account not found!',
     JOB_FOUND: 'JOB Found',
     JOB_NOT_FOUND: 'JOB not found!',
+    JOB_ALREADY_ASSIGNED: 'Job is already assigned to someone',
     MISSING_CREDENTIALS: 'Required Credentials not given',
     INVALID_CREDENTIALS: 'Credentials not matched',
     UPDATE_UNSUCCESSFULL: 'Unable to Update Requested Field',
