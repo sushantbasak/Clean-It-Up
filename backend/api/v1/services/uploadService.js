@@ -4,7 +4,7 @@ const dbStoreHandler = require('../../dbstore/mongo');
 
 // Functions
 
-const createFileupload = async (data) => {
+const createFileUpload = async (data) => {
   const { result, hasError } = await dbStoreHandler.createUpload(data);
 
   if (hasError || result == null) {
