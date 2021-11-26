@@ -13,6 +13,8 @@ const {
 
 const { createJob, findAllJob, updateJob, findJob } = require('./queries/job');
 
+const { createUpload, findUpload } = require('./queries/upload');
+
 mongoose.connect(
   mongoDB,
   {
@@ -33,6 +35,8 @@ const dbStoreHandler = {
   findAllJob,
   findJob,
   updateJob,
+  createUpload,
+  findUpload,
 };
 
 module.exports = dbStoreHandler;
