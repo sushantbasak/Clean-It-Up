@@ -1,4 +1,5 @@
 const sharp = require('sharp');
+const ErrorHandler = require('../../utils/errorHandler');
 
 const imageCompression = async (imageData) => {
   try {
@@ -9,7 +10,9 @@ const imageCompression = async (imageData) => {
 
     return { status: 'SUCCESS', imageBuffer: buffer };
   } catch (ex) {
-    return { status: 'ERROR' };
+    ErrorHandler.extractError(ex);
+
+    return { status: 'ERROR_FOUND' };
   }
 };
 

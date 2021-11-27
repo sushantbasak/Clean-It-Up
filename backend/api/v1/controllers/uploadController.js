@@ -16,8 +16,30 @@ const { protect } = require('../middleware/auth');
 
 // Functions
 
-const getFileUpload = (req, res) => {
-  res.sendSuccess(MESSAGES.api.CREATED, httpCode.StatusCodes.CREATED);
+const getFileUpload = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const findImage = await uploadService.findFileUpload({ _id: id });
+
+    if (findImage.status === 'ERROR_FOUND') throw new Error();
+
+    if (findImage.status === 'NOT_FOUND') {
+      res.sendError(httpCode.StatusCodes.NOT_FOUND, MESSAGES.api.NOT_FOUND);
+    }
+
+    res.sendSuccess(
+      findImage.result,
+      MESSAGES.api.FOUND,
+      httpCode.StatusCodes.OK
+    );
+  } catch (ex) {
+    ErrorHandler.extractError(ex);
+    res.sendError(
+      httpCode.StatusCodes.INTERNAL_SERVER_ERROR,
+      MESSAGES.api.SOMETHING_WENT_WRONG
+    );
+  }
 };
 
 const uploadFile = async (req, res) => {
@@ -52,7 +74,7 @@ const uploadFile = async (req, res) => {
   }
 };
 
-router.get('/', getFileUpload);
+router.get('/:id', getFileUpload);
 
 router.post('/', imageUpload.single('avatar'), protect, uploadFile);
 
