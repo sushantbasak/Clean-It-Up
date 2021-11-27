@@ -27,7 +27,7 @@ const uploadFile = async (req, res) => {
     if (compressedImage.status === 'ERROR_FOUND')
       throw new Error('Unable to compress Images');
 
-    const uploadResult = uploadService.createFileUpload({
+    const uploadResult = await uploadService.createFileUpload({
       file: compressedImage.imageBuffer,
       uploadedBy: req.user._id,
       fileName: req.file.originalname,
@@ -36,7 +36,13 @@ const uploadFile = async (req, res) => {
     if (uploadResult.status === 'ERROR_FOUND')
       throw new Error('Unable to create a new File Upload');
 
-    res.sendSuccess(MESSAGES.api.CREATED, httpCode.StatusCodes.CREATED);
+    delete uploadResult.result.file;
+
+    res.sendSuccess(
+      uploadResult.result,
+      MESSAGES.api.CREATED,
+      httpCode.StatusCodes.CREATED
+    );
   } catch (ex) {
     ErrorHandler.extractError(ex);
     res.sendError(
