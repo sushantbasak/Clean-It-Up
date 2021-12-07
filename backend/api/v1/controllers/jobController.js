@@ -17,7 +17,6 @@ const {
   userAccessOnly,
   restrictWorker,
   workerAccessOnly,
-  adminProtect,
 } = require('../middleware/role');
 
 // Functions
@@ -232,9 +231,5 @@ router.get('/myjob', protect, workerAccessOnly, fetchAcceptedJob);
 router.get('/accept', protect, workerAccessOnly, acceptNewJob);
 
 router.get('/leave', protect, workerAccessOnly, leaveJob);
-
-// Job Route -> Admin
-
-router.get('/verify', protect, adminProtect, verifyJob);
 
 module.exports = router;
