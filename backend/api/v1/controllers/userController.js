@@ -195,7 +195,7 @@ router.post(
   createUser
 );
 
-router.get(
+router.post(
   '/login',
   celebrate({
     body: loginSchema,

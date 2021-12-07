@@ -172,7 +172,7 @@ const leaveJob = async (req, res) => {
 
 const rateJob = async (req, res) => {
   try {
-    const { jobId, rating } = req.query;
+    const { jobId, rating } = req.body;
 
     const { _id: userId } = req.user;
 
@@ -222,7 +222,7 @@ router.post('/create', protect, userAccessOnly, createJob);
 
 router.get('/my', protect, userAccessOnly, fetchMyJob);
 
-router.get('/rate', protect, userAccessOnly, rateJob);
+router.post('/rate', protect, userAccessOnly, rateJob);
 
 // Job Route -> Worker
 
