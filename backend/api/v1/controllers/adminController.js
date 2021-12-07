@@ -114,6 +114,26 @@ const blackListUser = async (req, res) => {
   }
 };
 
+const getAllUser = async (req, res) => {
+  try {
+    const getAllUser = await userService.findAllUser({});
+
+    if (getAllUser.status === 'ERROR_FOUND') throw new Error();
+
+    res.sendSuccess(
+      getAllUser.result,
+      MESSAGES.api.SUCCESS,
+      httpCode.StatusCodes.OK
+    );
+  } catch (ex) {
+    ErrorHandler.extractError(ex);
+    res.sendError(
+      httpCode.StatusCodes.INTERNAL_SERVER_ERROR,
+      MESSAGES.api.SOMETHING_WENT_WRONG
+    );
+  }
+};
+
 router.patch('/job/whiteList', protect, adminProtect, whiteListJob);
 
 router.patch('/job/blackList', protect, adminProtect, blackListJob);
@@ -121,5 +141,7 @@ router.patch('/job/blackList', protect, adminProtect, blackListJob);
 router.patch('/user/whiteList', protect, adminProtect, whiteListUser);
 
 router.patch('/user/blackLlst', protect, adminProtect, blackListUser);
+
+router.get('/user/all', protect, adminProtect, getAllUser);
 
 module.exports = router;
