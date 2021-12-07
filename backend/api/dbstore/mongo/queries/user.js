@@ -39,6 +39,24 @@ const findUser = async (body) => {
   }
 };
 
+const findAllUser = async (body) => {
+  try {
+    const result = await User.schema.find(body);
+
+    if (result == null) return { result: null, hasError: null };
+
+    const final = result.toJSON();
+
+    delete final.password;
+
+    return { result: final, hasError: null };
+  } catch (ex) {
+    ErrorHandler.extractError(ex);
+
+    return { result: null, hasError: true };
+  }
+};
+
 const getPassword = async (body) => {
   try {
     const { _id, password, isEmailConfirmed } = await User.schema.findOne(body);
@@ -79,4 +97,4 @@ const updateUser = async (filter, updateData) => {
   }
 };
 
-module.exports = { createUser, findUser, getPassword, updateUser };
+module.exports = { createUser, findUser, findAllUser, getPassword, updateUser };
