@@ -21,6 +21,10 @@ const userSchema = new mongoose.Schema({
   city: {
     type: String,
   },
+  isVerified: {
+    type: Boolean,
+    default: false,
+  },
   email: {
     type: String,
     required: [true, 'Please add an email'],
