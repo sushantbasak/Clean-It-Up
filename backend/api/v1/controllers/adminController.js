@@ -13,11 +13,14 @@ const { protect } = require('../middleware/auth');
 
 const { adminProtect } = require('../middleware/role');
 
-const verifyJob = async (req, res) => {
+const whitelistJob = async (req, res) => {
   try {
     const { jobId } = req.query;
 
-    const getVerifiedJob = await jobService.verifyJob({ jobId });
+    const getVerifiedJob = await jobService.verifyJob({
+      jobId,
+      isVerified: true,
+    });
 
     if (getVerifedJob.status === 'ERROR_FOUND') throw new Error();
 
@@ -35,6 +38,33 @@ const verifyJob = async (req, res) => {
   }
 };
 
-router.get('/verify', protect, adminProtect, verifyJob);
+const blackListJob = async (req, res) => {
+  try {
+    const { jobId } = req.query;
+
+    const getVerifiedJob = await jobService.verifyJob({
+      jobId,
+      isVerified: false,
+    });
+
+    if (getVerifedJob.status === 'ERROR_FOUND') throw new Error();
+
+    res.sendSuccess(
+      getVerifiedJob.result,
+      MESSAGES.api.CREATED,
+      httpCode.StatusCodes.OK
+    );
+  } catch (ex) {
+    ErrorHandler.extractError(ex);
+    res.sendError(
+      httpCode.StatusCodes.INTERNAL_SERVER_ERROR,
+      MESSAGES.api.SOMETHING_WENT_WRONG
+    );
+  }
+};
+
+router.patch('/whiteList/job', protect, adminProtect, whiteListJob);
+
+router.patch('/blackList/job', protect, adminProtect, blackListJob);
 
 module.exports = router;
