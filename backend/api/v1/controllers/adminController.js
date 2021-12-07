@@ -13,7 +13,7 @@ const { protect } = require('../middleware/auth');
 
 const { adminProtect } = require('../middleware/role');
 
-const whitelistJob = async (req, res) => {
+const whiteListJob = async (req, res) => {
   try {
     const { jobId } = req.query;
 
