@@ -69,6 +69,7 @@ const userService = {
   findUser,
   getPassword,
   updateUser,
+  verifyUser,
 };
 
 module.exports = userService;

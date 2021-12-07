@@ -10,6 +10,7 @@ const ErrorHandler = require('../../utils/errorHandler');
 const jobService = require('../services/jobService');
 const { MESSAGES } = require('../../../constants');
 const { protect } = require('../middleware/auth');
+const userService = require('../services/userService');
 
 const { adminProtect } = require('../middleware/role');
 
