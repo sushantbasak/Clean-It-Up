@@ -63,8 +63,62 @@ const blackListJob = async (req, res) => {
   }
 };
 
-router.patch('/whiteList/job', protect, adminProtect, whiteListJob);
+const whiteListUser = async (req, res) => {
+  try {
+    const { userId } = req.query;
 
-router.patch('/blackList/job', protect, adminProtect, blackListJob);
+    const getVerifiedUser = await userService.verifyUser({
+      userId,
+      isVerified: true,
+    });
+
+    if (getVerifedUser.status === 'ERROR_FOUND') throw new Error();
+
+    res.sendSuccess(
+      getVerifiedUser.result,
+      MESSAGES.api.CREATED,
+      httpCode.StatusCodes.OK
+    );
+  } catch (ex) {
+    ErrorHandler.extractError(ex);
+    res.sendError(
+      httpCode.StatusCodes.INTERNAL_SERVER_ERROR,
+      MESSAGES.api.SOMETHING_WENT_WRONG
+    );
+  }
+};
+
+const blackListUser = async (req, res) => {
+  try {
+    const { userId } = req.query;
+
+    const getVerifiedUser = await userService.verifyUser({
+      userId,
+      isVerified: false,
+    });
+
+    if (getVerifedUser.status === 'ERROR_FOUND') throw new Error();
+
+    res.sendSuccess(
+      getVerifiedUser.result,
+      MESSAGES.api.CREATED,
+      httpCode.StatusCodes.OK
+    );
+  } catch (ex) {
+    ErrorHandler.extractError(ex);
+    res.sendError(
+      httpCode.StatusCodes.INTERNAL_SERVER_ERROR,
+      MESSAGES.api.SOMETHING_WENT_WRONG
+    );
+  }
+};
+
+router.patch('/job/whiteList', protect, adminProtect, whiteListJob);
+
+router.patch('/job/blackList', protect, adminProtect, blackListJob);
+
+router.patch('/user/whiteList', protect, adminProtect, whiteListUser);
+
+router.patch('/user/blackLlst', protect, adminProtect, blackListUser);
 
 module.exports = router;
