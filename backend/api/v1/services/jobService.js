@@ -78,11 +78,11 @@ const completeJob = async (data) => {
 };
 
 const verifyJob = async (data) => {
-  const { jobId } = data;
+  const { jobId, isVerified } = data;
 
   const updatedJob = await dbStoreHandler.updateJob(
     { _id: jobId },
-    { isVerified: true }
+    { isVerified }
   );
 
   if (updatedJob.result === NULL || updatedJob.hasError)
