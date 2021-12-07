@@ -50,6 +50,20 @@ const updateUser = async (filter, updateData) => {
   return { result, status: 'USER_UPDATED' };
 };
 
+const verifyUser = async (data) => {
+  const { userId, isVerified } = data;
+
+  const updatedUser = await dbStoreHandler.updateUser(
+    { _id: userId },
+    { isVerified }
+  );
+
+  if (updatedUser.result === NULL || updatedUser.hasError)
+    return { status: 'ERROR_FOUND' };
+
+  return { result: updatedUser.result, status: 'SUCCESS' };
+};
+
 const userService = {
   createUser,
   findUser,
