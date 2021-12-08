@@ -15,6 +15,9 @@ const config = {
     },
     reactUrl: process.env.REACT_APP_URL,
     serverUrl: process.env.SERVER_URL,
+    homeMail: process.env.HOME_MAIL,
+    homeMailPassword: process.env.HOME_MAIL_PASSWORD,
+    emailServiceProvider: process.env.EMAIL_SERVICE_PROVIDER,
   },
 };
 
